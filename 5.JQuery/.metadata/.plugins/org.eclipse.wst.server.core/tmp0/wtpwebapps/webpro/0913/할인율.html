@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "UTF-8">
+		<title></title>
+		<link rel = "stylesheet" href = "../css/mystyle.css">
+		<style>
+			.box, .imgbox, img{
+				box-sizing : border-box;
+				width : 100%;
+			}
+			#result1, #result2{
+				height : 250px;
+			}
+			.imgbox{
+				width : calc(20% - 1%);
+				height : 245px;
+				padding : 1px;
+				margin : 1px;
+				float : left;
+			}
+			img{
+				width : 100%;
+				height : 85%;
+			}
+			#result2 img{
+				width : calc(20% - 1%);
+				height : 245px;
+				padding : 1px;
+				margin : 1px;
+				float : left;
+			}
+		</style>
+		<script>
+			window.onload = function(){
+				boxes = document.getElementsByClassName('imgbox');
+				
+				for(i = 0; i < boxes.length; i++){
+					//proc1은 함수이름
+					//proc1은 addEventListener의 parameter로 사용되는 함수
+					//호출하는 형식처럼 proc1()의 형태가 아니라, proc1의 형태로 사용한다.
+					boxes[i].addEventListener('click', proc1);
+				}
+			}
+			
+			pid = null;
+			
+			function proc1(){
+				//클릭 당시 이미 생성된 ptag가 존재하면 그 ptag를 제거
+				pid = document.getElementById('sale');
+				
+				if(pid != null){
+					pid.parentNode.removeChild(pid);
+				}
+				
+				//랜덤값(5~10) 생성
+				rnd = Math.floor(Math.random() * 6 + 5);
+				
+				//textNode 생성(할인율 : 랜덤값)
+				text = document.createTextNode("할인율 : " + rnd + " %");
+				
+				//p태그 생성
+				ptag = document.createElement('p');
+				ptag.id = 'sale'; 
+				
+				//p태그에 text를 추가
+				ptag.appendChild(text);
+				
+				//this는 클릭한 imgbox이다.
+				//this를 사용할 때는 람다식 형식은 사용할 수 없다.
+				//클릭한 imgbox에 ptag를 추가
+				this.appendChild(ptag);
+				
+				//클릭 이후 이벤트 제거
+				this.removeEventListener('click', proc1);
+			}
+			
+			function proc2(btn){
+				btn.style.display = "none";
+				
+				gvbtn = btn;
+				//result2에 접근 검색
+				result = document.getElementById('result2');
+				
+				//배너처럼 일정시간마다 반복
+				a = setInterval(function(){
+						childimg = result.getElementsByTagName('img')[0];
+						result.appendChild(childimg);
+					}, 100)
+				
+				//result2에서 첫번째 자식을 선택
+				//childimg = result.firstChild;
+				//childimg = result.getElementsByTagName('img')[0];
+				
+				//선택한 자식요소를 result2에 추가
+				//result.appendChild(childimg);
+			}
+			
+			function proc3(){
+				clearInterval(a);
+				
+				//확인버튼 나타내기
+				gvbtn.style.display = "inline";
+			}
+		</script>
+	</head>
+	<body>
+		<div class = "box">
+			<h3>새로운 요소 추가</h3>
+			<h4>imgbox를 클릭하면  &lt;p>할인율 : 5%&lt;/p>를 추가한다.</h4>
+			<h4>이벤트 일괄등록</h4>
+			<h4>imgbox.addEventListener('click', fn)</h4>
+			<h4>이벤트 제거</h4>
+			<h4>imgbox.removeEventListener('click', fn)</h4>
+			<br>
+			<div id = "result1">
+				<div class = "imgbox"><img src = "../images/단풍.jpg" alt = "단풍.jpg"></div>
+				<div class = "imgbox"><img src = "../images/뱅쇼.jpg" alt = "뱅쇼.jpg"></div>
+				<div class = "imgbox"><img src = "../images/수국.jpg" alt = "수국.jpg"></div>
+				<div class = "imgbox"><img src = "../images/국화.jpg" alt = "국화.jpg"></div>
+				<div class = "imgbox"><img src = "../images/수국9.jpg" alt = "수국9.jpg"></div>
+			</div>
+		</div>
+		
+		<br><hr><br>
+		
+		<div class = "box">
+			<h3>기존 요소 추가</h3>
+			<h4>- 부모노드.appendChild(자식노드)</h4>
+			<h4>- 기존의 요소를 가지고 appendChild를 사용할 때는 기존의 요소를 잘라서 추가한다.(기존의 것은 지워지고 새 위치로 이동한다.)</h4>
+			<br>
+			<div id = "result2">
+				<img src = "../images/단풍.jpg" alt = "단풍.jpg">
+				<img src = "../images/뱅쇼.jpg" alt = "뱅쇼.jpg">
+				<img src = "../images/수국.jpg" alt = "수국.jpg">
+				<img src = "../images/국화.jpg" alt = "국화.jpg">
+				<img src = "../images/수국9.jpg" alt = "수국9.jpg">
+			</div><br>
+			<input type = "button" value = "확인" onclick = "proc2(this)">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type = "button" value = "종료" onclick = "proc3()"><br><br>
+		</div>
+		
+		<br><hr><br>
+	</body>
+</html>

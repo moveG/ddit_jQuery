@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../css/mystyle.css">
+		<script src="../js/jquery-3.6.0.min.js"></script>
+		<script>
+			$(function(){
+				$('#btn1').on('click', function(){
+					$('#result1 img').attr('title', 'korea');
+				})
+				
+				$('#btn2').on('click', function(){
+					$('#result2 img').attr('title', function(){
+						//src의 속성값을 가져온다.
+						vsrc = $(this).attr('src');
+
+						//vsrc에서 마지막 슬래시('/')의 위치 얻기
+						start = vsrc.lastIndexOf('/');
+						
+						//vsrc에서 마지막 점('.')의 위치 얻기
+						end = vsrc.lastIndexOf(".");
+						
+						//vsrc에서 start+1 ~ end 사이의 문자를 추출함 - substring, slice 등을 사용함
+						vtitle = vsrc.substring(start+1, end);
+						
+						return vtitle;
+					})
+				})
+			})
+		</script>
+		<style>
+			img{
+				width : 250px;
+				height : 250px;
+				margin : 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<h3>속성 메서드</h3>
+			<h4>attr('title', 'korea') : 모든 이미지의 title 속성값을 korea로 설정한다.</h4>
+			<br>
+			<input id="btn1" type="button" value="확인"><br><br>
+			<div id="result1">
+				<img src="../images/국화5.jpg" alt="국화5.jpg">
+				<img src="../images/수국3.jpg" alt="수국3.jpg">
+				<img src="../images/수국5.jpg" alt="수국5.jpg">
+				<img src="../images/사자2.jpg" alt="사자2.jpg">
+				<img src="../images/국화7.jpg" alt="국화7.jpg">
+			</div>
+		</div>
+		
+		<br><hr><br>
+		
+		<div class="box">
+			<h3>속성 메서드</h3>
+			<h4>attr('title', function(){ return 값; }) : 모든 이미지의 title 속성값을 각각의 이름으로  설정한다.</h4>
+			<h4>function에서 수행된 결과값을 리턴하여 이미지의 title 속성값을 리턴된 값으로  설정한다.</h4>
+			<br>
+			<input id="btn2" type="button" value="확인"><br><br>
+			<div id="result2">
+				<img src="../images/국화5.jpg" alt="국화5.jpg">
+				<img src="../images/수국3.jpg" alt="수국3.jpg">
+				<img src="../images/수국5.jpg" alt="수국5.jpg">
+				<img src="../images/사자2.jpg" alt="사자2.jpg">
+				<img src="../images/국화7.jpg" alt="국화7.jpg">
+			</div>
+		</div>
+		
+		<br><hr><br>
+	</body>
+</html>

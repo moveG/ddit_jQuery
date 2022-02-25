@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../css/mystyle.css">
+		<script src="../js/jquery-3.6.0.min.js" type=""></script>
+		<style>
+			img{
+				width : 250px;
+				height : 250px;
+			}
+		</style>
+		<script>
+			$(function(){
+				$('#result1 p').on('click', function(){
+					vtitle = $(this).attr('title');
+					//this는 click된 #result1의 p를 가리킴
+					vtext = $(this).text();
+					//alert(vtitle + ", " + vtext);
+					//alert(`${vtitle}, ${vtext}`);
+					
+					//이미지 생성
+					//appendTo
+					$('<img>', {
+						'src' : '../images/' + vtitle + ".jpg",
+						'alt' : vtitle + ".jpg",
+						'width' : 100,
+						'height' : 100
+					}).appendTo(this);
+					//append
+					$(this).append(
+						$('<img>', {
+							'src' : '../images/' + vtitle + ".jpg",
+							'alt' : vtitle + ".jpg",
+							'width' : 100,
+							'height' : 100
+					}));
+				})
+				
+				$('#result2 p').on('click', function(){
+					vtitle = $(this).attr('title');
+					vtext = $(this).text();
+					
+					//이미지 생성, 변수 이용
+					vimg = $('<img>', {
+						'src' : '../images/' + vtitle + ".jpg",
+						'alt' : vtitle + ".jpg",
+						'width' : 100,
+						'height' : 100
+					});
+					/* vimg2 = $('<img>', {
+						'src' : '../images/' + vtitle + ".jpg",
+						'alt' : vtitle + ".jpg",
+						'width' : 100,
+						'height' : 100
+					}); */
+					
+					//prependTo
+					$(vimg).prependTo(this);
+					//prepend
+					$(this).prepend(vimg);
+					//$(this).prepend(vimg2);
+					/* $(this).prepend(
+						$('<img>', {
+							'src' : '../images/' + vtitle + ".jpg",
+							'alt' : vtitle + ".jpg",
+							'width' : 100,
+							'height' : 100
+					})); */
+				})
+				
+				$('#btn3').on('click', function(){
+					//$('#result3 img:first').appendTo('#result3');
+					//btn3을 클릭하면 result3 내부의 첫번째 이미지가 result3 내부의 마지막으로 이동한다.
+					setInterval(function(){
+						$('#result3 img:last').prependTo('#result3');
+						//btn3을 클릭하면 result3 내부의 마지막 이미지가 result3 내부의 처음으로 이동한다.
+						
+						cr = Math.floor(Math.random() * 256);
+						cg = Math.floor(Math.random() * 256);
+						cb = Math.floor(Math.random() * 256);
+						
+						cr = cr.toString(16);
+						cg = cg.toString(16);
+						cb = cb.toString(16);
+					
+						$('body').css('background', '#'+cr+cb+cg);
+					
+					}, 50);
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<div class="box">
+			<h3>이미지 추가 메서드 : 셀렉터의 안쪽으로 이미지가 뒷부분에 추가된다.</h3>
+			<h4>셀렉터.append(내용)</h4>
+			<h4>내용.appendTo(셀렉터)</h4>
+			<br>
+			<div id="result1">
+				<p title="Tulips">튤립</p>
+				<p title="Chrysanthemum">국화</p>
+				<p title="Koala">코알라</p>
+				<p title="Hydrangeas">수국</p>
+				<!-- title : 마우스 커서를 올려놓으면 title의 단어가 나옴 -->
+			</div>
+		</div>
+		
+		<br><hr><br>
+		
+		<div class="box">
+			<h3>이미지 추가 메서드 : 셀렉터의 안쪽으로 이미지가 앞부분에 추가된다.</h3>
+			<h4>셀렉터.prepend(내용)</h4>
+			<h4>내용.prependTo(셀렉터)</h4>
+			<br>
+			<div id="result2">
+				<p title="Tulips">튤립</p>
+				<p title="Chrysanthemum">국화</p>
+				<p title="Koala">코알라</p>
+				<p title="Hydrangeas">수국</p>
+				<!-- title : 마우스 커서를 올려놓으면 title의 단어가 나옴 -->
+			</div>
+		</div>
+		
+		<br><hr><br>
+		
+		<div class="box">
+			<h3>이미지 추가 메서드 : 셀렉터의 안쪽으로 이미지가 추가된다.</h3>
+			<h4>기존의 내용을 추가하면 기존의 내용이 잘라져서 이동된다.</h4>
+			<br>
+			<input id="btn3" type="button" value="확인"><br><br>
+			<div id="result3">
+				<img src="../images/국화5.jpg" alt="국화5.jpg">
+				<img src="../images/수국3.jpg" alt="수국3.jpg">
+				<img src="../images/수국5.jpg" alt="수국5.jpg">
+				<img src="../images/사자2.jpg" alt="사자2.jpg">
+				<img src="../images/국화7.jpg" alt="국화7.jpg">
+			</div>
+		</div>
+		
+		<br><hr><br>
+	</body>
+</html>

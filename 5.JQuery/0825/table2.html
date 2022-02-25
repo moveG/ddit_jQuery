@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset = "UTF-8">
+      <title>테이블 헤더</title>
+	  <style>
+	     table{
+		    border : 2px solid black;
+			/*
+			margin : 100px 50px;
+			margin-left : 500px;
+			*/
+			margin : 100px auto; //위아래는 100px, 좌우는 auto(가운데정렬);
+		 }
+		 td{
+		    width : 100px;
+			height : 50px;
+			text-align : center;
+		 }
+		 th{
+		    height : 50px;
+			/*background : brown;*/					//문자로 컬러표현;
+			/*background : rgb(145, 198, 200);*/	//rgb(숫자)로 컬러표현;
+			/*background : rgb(67%, 89%, 55%);*/	//rgb(%)로 컬러표현;
+			background : #50C8FF;					//16진수로 컬러표현;
+			color : white;
+			font-size : 20px;
+		 }
+		 #title{
+		    width : 500px;
+		 }
+		 
+		 #tab2{
+		    border-collapse : collapse;			//테이블선 합치기;
+			/*border-collapse : separate;*/		//원래대로 변경, separate가 기본값;
+			border : 10px solid black;
+		 }
+		 #tab3{
+		    border : 10px groove orange;
+		    border-spacing : 10px;
+		 }
+	  </style>
+   </head>
+   <body>
+      <table border = "1">
+	     <tr>
+		    <th id = "title">영화제목</th>
+			<th >년도</th>
+			<th >감독</th>
+			<th >평가</th>
+		 </tr>
+		 <tr>
+		    <td>라이프 오브 파이</td>
+			<td>2013</td>
+			<td>이안</td>
+			<td>8.68</td>
+		 </tr>
+		 <tr>
+		    <td>레미제라블</td>
+			<td>2012</td>
+			<td>톰후퍼</td>
+			<td>8.28</td>
+		 </tr>
+		 <tr>
+		    <td>장고 : 분노의 추적자</td>
+			<td>2012</td>
+			<td>타란티노</td>
+			<td>8.29</td>
+		 </tr>
+		 <tr>
+		    <td>기생충</td>
+			<td>2019</td>
+			<td>봉준호</td>
+			<td>9.99</td>
+		 </tr>
+		 <tr>
+		    <td>백두산</td>
+			<td>2019</td>
+			<td>이해준</td>
+			<td>9.12</td>
+		 </tr>
+	  </table>
+	  
+	  <table id = "tab2" border = "1">
+	     <tr>
+		    <th id = "title">영화제목</th>
+			<th >년도</th>
+			<th >감독</th>
+			<th >평가</th>
+		 </tr>
+		 <tr>
+		    <td>라이프 오브 파이</td>
+			<td>2013</td>
+			<td>이안</td>
+			<td>8.68</td>
+		 </tr>
+		 <tr>
+		    <td>레미제라블</td>
+			<td>2012</td>
+			<td>톰후퍼</td>
+			<td>8.28</td>
+		 </tr>
+		 <tr>
+		    <td>장고 : 분노의 추적자</td>
+			<td>2012</td>
+			<td>타란티노</td>
+			<td>8.29</td>
+		 </tr>
+		 <tr>
+		    <td>기생충</td>
+			<td>2019</td>
+			<td>봉준호</td>
+			<td>9.99</td>
+		 </tr>
+		 <tr>
+		    <td>백두산</td>
+			<td>2019</td>
+			<td>이해준</td>
+			<td>9.12</td>
+		 </tr>
+	  </table>
+	  
+	  <table id = "tab3" border = "1">
+	     <tr>
+		    <th id = "title">영화제목</th>
+			<th >년도</th>
+			<th >감독</th>
+			<th >평가</th>
+		 </tr>
+		 <tr>
+		    <td>라이프 오브 파이</td>
+			<td>2013</td>
+			<td>이안</td>
+			<td>8.68</td>
+		 </tr>
+		 <tr>
+		    <td>레미제라블</td>
+			<td>2012</td>
+			<td>톰후퍼</td>
+			<td>8.28</td>
+		 </tr>
+		 <tr>
+		    <td>장고 : 분노의 추적자</td>
+			<td>2012</td>
+			<td>타란티노</td>
+			<td>8.29</td>
+		 </tr>
+		 <tr>
+		    <td>기생충</td>
+			<td>2019</td>
+			<td>봉준호</td>
+			<td>9.99</td>
+		 </tr>
+		 <tr>
+		    <td>백두산</td>
+			<td>2019</td>
+			<td>이해준</td>
+			<td>9.12</td>
+		 </tr>
+	  </table>
+   </body>
+</html>

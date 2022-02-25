@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../css/mystyle.css">
+		<script src="../js/jquery-3.6.0.min.js" type=""></script>
+		<script>
+			$(function(){
+				//script를 body내부의 하부에 작성된다면, $(function(){})을 사용할 필요가 없다.
+				//$(function(){})이 문서가 전부 실행된 다음, 실행되는 기능이기 때문이다.
+				$('#btn1').on('click', function(){
+					//$("<img onclick='imgBorder(this)' src='../images/국화4.jpg' art='국화4.jpg'>").appendTo('#result1');
+					$('<img>', {
+						'src' : '../images/국화4.jpg',
+						'alt' : '국화4.jpg',
+						'click' : function(){
+							$(this).css('border', '3px double blue');
+						}
+					}).appendTo($('#result1'));
+				})
+			})
+			
+			/* function imgBorder(t){
+				//t.style.border = '1px solid blue';
+				$(t).css('width', '300px').css('height', '250px').css('border', '10px solid red');
+			} */
+
+			/* function imgBorder(t){
+				setInterval(function(){
+				t.style.border = '1px solid blue';
+				cr = Math.floor(Math.random() * 256);
+				cg = Math.floor(Math.random() * 256);
+				cb = Math.floor(Math.random() * 256);
+				
+				cr = cr.toString(16);
+				cg = cg.toString(16);
+				cb = cb.toString(16);
+				$(t).css('width', '300px').css('height', '250px').css('border', '10px solid #'+cr+cb+cg);
+				}, 50);
+			} */
+		</script>
+	</head>
+	<body>
+		<div class="box">
+			<h3>이미지 추가</h3>
+			<h4></h4>
+			<br>
+			<input id="btn1" type="button" value="이미지 추가"><br><br>
+			<div id="result1"></div>
+		</div>
+		
+		<br><hr><br>
+	</body>
+</html>

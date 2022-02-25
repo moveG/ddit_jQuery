@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../css/mystyle.css">
+		<script src="../js/jquery-3.6.0.min.js" type=""></script>
+		<style>
+			span{
+				background : orange;
+			}
+		</style>
+		<script>
+			$(function(){
+				$('#html').on('click', function(){
+					alert($('body').html());
+					//body태그의 모든것을 가져온다.
+				})
+				
+				$('#text').on('click', function(){
+					alert($('body').text());
+					//body태그 내부의 text를 가져온다.
+				})
+				
+				$('#phtml').on('click', function(){
+					//alert($('p').html())
+					vph = $('p').html();		//get, span태그가 포함, 첫번째 p태그만 포함
+					//$('#result1').html(vph);	//set, span태그가 실행됨
+					$('#result1').text(vph);	//set, <span>태그를 글자로 출력
+				})
+				
+				$('#ptext').on('click', function(){
+					//alert($('p').text())
+					vpt = $('p').text();		//get, span태그 제외
+					$('#result1').html(vpt);	//set, html이나 text나 동일하게 출력
+				})
+				
+				$('#pallhtml').on('click', function(){
+					//반복문
+					//len = $('.box3 p').length;
+					str = "";
+					
+					$('.box3 p').each(function(i, v){
+						//p[0], p[1], [2], v=p[0], v=p[1], v=p[2]
+						
+						//str += $(this).html() + "\n";
+						//alert()로 출력할 때는 <br>대신 \n을 사용해야 한다.
+						str += $(this).html() + "<br>";
+					})
+					//alert(str);
+					//$('#result2').html(str);
+					$('#result2').text(str);					
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<div class="box box1">
+			<h3>html과 text</h3>
+			<h4>html : 태그를 포함하는 모든 문장</h4>
+			<h4>text : 태그를 포함하지 않는 문장</h4>
+			<br>
+			<input id="html" type="button" value="html">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input id="text" type="button" value="text"><br><br>
+		</div>
+		
+		<br><hr><br>
+		
+		<div class="box box2">
+			<h3>html과 text</h3>
+			<h4>#("p").html : 첫번째 p태그를 대상으로 한다.</h4>
+			<h4>#("p").text : 모든 p태그를 대상으로 한다.</h4>
+			<br>
+			<input id="phtml" type="button" value="html">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input id="ptext" type="button" value="text"><br><br>
+			<p>1<span>홍길동</span></p>
+			<p>2<span>개나리</span></p>
+			<p>3<span>진달래</span></p>
+			<br>
+			<div id="result1"></div>
+		</div>
+		
+		<br><hr><br>
+		
+			<div class="box box3">
+			<h3>html과 text</h3>
+			<h4>#("p").html : 첫번째 p태그를 대상으로 한다.</h4>
+			<h4>모든 p태그를 대상으로 하기 위해서는 반복문이 필요하다.</h4>
+			<br>
+			<input id="pallhtml" type="button" value="pallhtml">&nbsp;&nbsp;&nbsp;&nbsp;
+			<p>1<span>홍길동</span></p>
+			<p>2<span>개나리</span></p>
+			<p>3<span>진달래</span></p>
+			<br>
+			<div id="result2"></div>
+		</div>
+		
+		<br><hr><br>
+	</body>
+</html>

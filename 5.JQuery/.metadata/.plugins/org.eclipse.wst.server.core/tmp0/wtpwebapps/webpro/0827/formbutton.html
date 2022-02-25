@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<link rel = "stylesheet" href = "../css/mystyle.css"><!-- 외부에서 스타일을 불러옴 -->
+		<style>
+			form{
+				width : 70%;
+				margin : 50px;
+				padding : 20px;
+				border : 1px solid black;
+			}
+			label{
+				display : inline-block;
+				//inline 요소에 크기를 지정하려면 display를 통해 block요소로 바꿔줘야함;
+				width : 120px;
+				height : 30px;
+			}
+			span{
+				background : red;
+				color : white;
+			}
+		</style>
+	</head>
+	<body>
+		<pre>
+			&lt;button>전송&lt;/button>
+			&lt;button type = "submit">전송&lt;/button>
+			&lt;button type = "button" <span>onclick = "alert('Hello~~')"</span>>확인&lt;/button>
+			
+			- type = "button"은 기능이 없다, 기능을 부여하기 위해서 Javascript를 이용한다.
+		</pre>
+		<form action = "fbutton.jsp" method = "post">
+			<label>아이디</label>
+			<input type = "text" name = "id"><br>
+			
+			<label>이름</label>
+			<input type = "text" name = "name"><br>
+			
+			<label>주소</label>
+			<input type = "text" name = "addr"><br>
+			
+			<label>성별</label>
+			<input type = "radio" value = "남자" name = "gender">남자
+			<input type = "radio" value = "여자" name = "gender">여자<br>
+			<!-- 이름(name)을 같게 해줌 -->			
+			<!-- value를 줘야함 -->
+			
+			<label>좋아하는 음식</label>
+			<input type = "checkbox" value = "떡볶이" name = "food">떡볶이
+			<input type = "checkbox" value = "잡채" name = "food">잡채
+			<input type = "checkbox" value = "치킨" name = "food">치킨
+			<input type = "checkbox" value = "피자" name = "food">피자
+			<input type = "checkbox" value = "만두" name = "food">만두
+			<input type = "checkbox" value = "김밥" name = "food">김밥
+			<input type = "checkbox" value = "불고기" name = "food">불고기<br>
+			<!-- 이름(name)을 같게 해줌 -->			
+			<!-- value를 줘야함 -->
+			<br>소개<br>
+			<textarea rows = "10" cols = "60" name = "area"></textarea>
+			<!-- rows와 cols는 초기값임, 고정된 값이 아님 -->
+			<br>
+			
+			<button>전송</button>
+			<button type = "submit">전송</button>
+			<button type = "reset">취소/초기화</button>
+			<button type = "button" onclick = "alert('돈을 입금하지 않으면 이 컴퓨터는 터진다.')">확인</button>
+			<!-- button은 타입이 없어도 됨 -->
+			<!-- button은 타입을 적지 않으면 기본으로 submit타입이 적용됨 -->
+			<!-- button type = "button"은 기능이 없음 -->
+			<!-- input에서는 기본타입이 text임 -->
+			
+		</form>
+	</body>
+</html>

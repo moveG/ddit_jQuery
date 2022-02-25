@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "UTF-8">
+		<title></title>
+		<link rel = "stylesheet" href = "../css/mystyle.css">
+		<script>
+			proc1 = () => {
+				names = new Array();
+				
+				while(true) {
+					//입력
+					indata = prompt("이름을 입력하세요.");
+					
+					//공백문자, 취소버튼
+					if(indata == "" || indata == null) break;
+					
+					//indata를 배열에 저장 - push()
+					names.push(indata.trim());
+				}
+				str = "이름 배열 : " + names + "<br>";
+				
+				//출력
+				document.getElementById('result1').innerHTML = str;
+			}
+			
+			proc2 = () => {
+				arr = new Array();
+				
+				while(true) {
+					//입력
+					indata = prompt("중복되지 않는 정수 5개를 입력하세요.");
+					
+					//중복체크
+					if(arr.indexOf(indata) < 0) {
+						arr.push(indata);
+					}else {	
+						alert("중복된 수입니다.");
+						//continue;
+					}
+					
+					//정수 5개 저장
+					if(arr.length >= 5) break;
+				}
+				//출력
+				document.getElementById('result2').innerHTML = arr;
+			}
+		</script>
+	</head>
+	<body>
+		<div class = "box">
+			<h3>배열 문제</h3>
+			<h4>사람의 이름을 계속 입력받아 배열에 저장</h4>
+			<h4>그 저장된 이름을 출력하는 프로그램 작성</h4>
+			<h4>입력의 마지막은 공백문자를 입력하거나 취소버튼을 눌렀을 때</h4>
+			<br>
+			<input type = "button" value = "확인" onclick = "proc1()"><br><br>
+			<div id = "result1"></div>
+		</div>
+		
+		<br><hr><br>
+		
+		<div class = "box">
+			<h3>배열 문제</h3>
+			<h4>서로 중복되지 않는 정수 5개를 입력받아 배열에 저장</h4>
+			<h4>그 저장된 정수를 출력하는 프로그램 작성</h4>
+			<br>
+			<input type = "button" value = "확인" onclick = "proc2()"><br><br>
+			<div id = "result2"></div>
+		</div>
+		
+		<br><hr><br>
+	</body>
+</html>

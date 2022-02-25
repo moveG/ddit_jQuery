@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset = "UTF-8">
+      <title>table1</title>
+	  <style>
+	  /*
+	  table{
+	     background : black;
+	     border : 5px double gold;
+	     color : gold;
+		 font-size : 40px;
+		 font-weight : bold;
+		 font-style : italic;
+	  }
+	  */
+	  table#tab1{
+	     border : 3px solid gold;
+		 margin : 20px;
+		 font size : 15px;
+	  }
+	  #tab2 {
+	     border : 3px solid skyblue;
+		 margin : 20px;
+		 font-size : 20px;
+	  }
+	  table#tab3{
+	     border : 3px solid gold;
+		 margin : 20px;
+		 font size : 15px;
+	  }
+	  td{
+	     background : white;
+	     width : 500px;
+		 height : 50px;
+		 
+	  }
+	  #tab2 td{
+	     width : 300px;
+		 height : 40px;
+	  }
+	  #tab3 .t31{	//table#tab3 td.t31과 동일함;
+	     width : 50px
+	  }
+	  #tab3 .t32{
+	     width : 200px
+	  }
+	  #tab2 th{
+	     background : yellowgreen;
+	     width : 400px;
+		 height : 80px;
+		 color : white;
+		 font-size : 50px;
+		 font-style : italic;
+	  }
+	  </style>
+   </head>
+   <body>
+      <table id = "tab1" border = "1">
+	     <tr>
+		    <th>학번</th>
+			<th>이름</th>
+		 </tr>
+		 <tr>
+		    <td>202101</td>
+			<td>홍길동</td>
+		 </tr>
+		 <tr>
+		    <td>202102</td>
+			<td>김길동</td>
+		 </tr>
+		 <tr>
+		    <td>202103</td>
+			<td>박길동</td>
+		 </tr>
+		 <tr>
+		    <td>202104</td>
+			<td>권길동</td>
+		 </tr>
+	  </table>
+	  
+	  <table id = "tab2" border = "1">
+	     <tr>
+		    <th>학번</th>
+			<th>이름</th>
+		 </tr>
+		 <tr>
+		    <td>202101</td>
+			<td>홍길동</td>
+		 </tr>
+		 <tr>
+		    <td>202102</td>
+			<td>김길동</td>
+		 </tr>
+		 <tr>
+		    <td>202103</td>
+			<td>박길동</td>
+		 </tr>
+		 <tr>
+		    <td>202104</td>
+			<td>권길동</td>
+		 </tr>
+	  </table>
+	  
+	  <table id = "tab3" border = "1">
+	     <tr>
+		    <td class = "t31">학번</td>
+			<td class = "t32">이름</td>
+		 </tr>
+		 <tr>
+		    <td class = "t31">202101</td>
+			<td class = "t32">홍길동</td>
+		 </tr>
+		 <tr>
+		    <td class = "t31">202102</td>
+			<td class = "t32">김길동</td>
+		 </tr>
+		 <tr>
+		    <td class = "t31">202103</td>
+			<td class = "t32">박길동</td>
+		 </tr>
+		 <tr>
+		    <td class = "t31">202104</td>
+			<td class = "t32">권길동</td>
+		 </tr>
+	  </table>
+   </body>
+</html>

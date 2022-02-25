@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "UTF-8">
+		<title></title>
+		<link rel = "stylesheet" href = "../css/mystyle.css">
+		<script>
+			function print(result) {
+				str = "";
+				
+				for(i = 0; i < fruits.length; i++){
+					str += fruits[i] + " ";
+				}
+				document.querySelector(result).innerHTML = str;
+				//document.getElementById('result').innerHTML = str;
+			}
+			proc1 = () => {
+				fruits = ["사과", "복숭아", "참외", "수박", "바나나"];
+				
+				print('#result1');
+				/*print('result1');*/
+			}
+			proc2 = function() {
+				fruits = new Array("사과", "포도", "파인애플", "자두", "배");
+				
+				print('#result2');
+				/*print('result2');*/
+			}
+			function proc3() {
+				fruits = new Array();
+				fruits[0] = "키위";
+				fruits[1] = "살구";
+				fruits[2] = "망고";
+				fruits[3] = "무화과";
+				fruits[4] = "파파야";
+				
+				print('#result3');
+				/*print('result3');*/
+			}
+		</script>
+	</head>
+	<body>
+		<div class = "box">
+			<h3>배열 - 리터럴로 생성</h3>
+			<h4>fruits = ["사과", "복숭아", "참외", "수박", "바나나"]</h4>
+			<br>
+			<input type = "button" value = "확인" onclick = "proc1()"><br><br>
+			<div id = "result1"></div>
+		</div>
+		
+		<br><hr><br>
+		
+		<div class = "box">
+			<h3>배열 - 객체로 생성</h3>
+			<h4>fruits = new Array("사과", "포도", "파인애플", "자두", "배")</h4>
+			<br>
+			<input type = "button" value = "확인" onclick = "proc2()"><br><br>
+			<div id = "result2"></div>
+		</div>
+		
+		<br><hr><br>
+		
+		<div class = "box">
+			<h3>배열 - 객체로 생성</h3>
+			<h4>fruits = new Array();</h4>
+			<h4>fruits[0] = "키위";</h4>
+			<h4>fruits[1] = "살구";</h4>
+			<h4>fruits[2] = "망고";</h4>
+			<h4>fruits[3] = "무화과";</h4>
+			<h4>fruits[4] = "바나나";</h4>
+			<br>
+			<input type = "button" value = "확인" onclick = "proc3()"><br><br>
+			<div id = "result3"></div>
+		</div>
+	</body>
+</html>

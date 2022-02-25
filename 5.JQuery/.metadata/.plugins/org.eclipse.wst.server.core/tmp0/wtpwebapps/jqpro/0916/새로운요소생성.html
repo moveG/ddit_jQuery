@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../css/mystyle.css">
+		<script src="../js/jquery-3.6.0.min.js" type=""></script>
+		<script>
+			/* function proc1(){
+				
+			}
+			
+			$(document).ready(function(){
+				$('#btn1').on('click', function(){
+					
+				})
+			}) */
+			
+			$(function(){
+				//box1
+				$('#btn1').on('click', function(){
+					ptag = $("<p id='p1' onclick='alert(\"안뇽\")'>Hello</p>");
+					//바깥쪽이 큰따옴표면 안쪽은 작은따옴표
+					//$('#result1').append(ptag);
+					$(ptag).appendTo($('#result1'));
+				})
+				
+				//box2
+				$('#btn2').on('click', function(){
+					/* ptag = $("<p></p>", {
+						//"<p></p>" 대신 "<p/>"를 사용할 수 있음
+						'text' : 'Hello',
+						'id' : 'p2',
+						'click' : function(){
+							alert("안뇽");
+						}
+					});
+					$(ptag).appendTo($('#result2')); */
+					
+					$("<p></p>", {
+						'text' : 'Hello',
+						'id' : 'p2',
+						'click' : function(){
+							alert("안뇽");
+						}
+					}).appendTo($('#result2'));
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<div class="box">
+			<h3>jQuery</h3>
+			<h4>$('html문장') : html문장을 생성한다.</h4>
+			<h4>appendTo('#result1') : result1에 추가</h4>
+			<br>
+			<!-- <input type="button" value="확인" onclick="proc1()"><br><br> -->
+			<input id="btn1" type="button" value="확인"><br><br>
+			<div id="result1"></div>
+		</div>
+		
+		<br><hr><br>
+		
+		<div class="box">
+			<h3>jQuery</h3>
+			<h4>$('html태그', {속성}) : html문장을 생성한다.</h4>
+			<h4>appendTo('#result2') : result2에 추가</h4>
+			<br>
+			<input id="btn2" type="button" value="확인"><br><br>
+			<div id="result2"></div>
+		</div>
+		
+		<br><hr><br>
+	</body>
+</html>

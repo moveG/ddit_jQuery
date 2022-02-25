@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../css/mystyle.css">
+		<script src="../js/jquery-3.6.0.min.js" type=""></script>
+		<style>
+			.box1 input[type=button]{
+				width : 150px;
+			}
+			table{
+				border : none;
+				width : 400px;
+				text-align : center;
+				border-collapse : collapse;
+				background : lightgray;
+			}
+			tr{
+				height : 35px;
+			}
+			th{
+				font-size : 1.2em;
+			}
+		</style>
+		<script>
+			$(function(){
+				$('#btn1').on('click', function(){
+					$('li:first').css('background', 'yellow');
+				})
+				
+				$('#btn2').on('click', function(){
+					$('li:first-child').css('border', '2px solid red');
+				})
+				
+				$('#btn3').on('click', function(){
+					setInterval(function(){
+						cr = Math.floor(Math.random() * 256);
+						cg = Math.floor(Math.random() * 256);
+						cb = Math.floor(Math.random() * 256);
+						
+						cr = cr.toString(16);
+						cg = cg.toString(16);
+						cb = cb.toString(16);
+						
+						$('#result2 td:nth-child(1)').css('background', '#'+cr+cb+cg);
+					}, 50);
+					setInterval(function(){
+						cr = Math.floor(Math.random() * 256);
+						cg = Math.floor(Math.random() * 256);
+						cb = Math.floor(Math.random() * 256);
+						
+						cr = cr.toString(16);
+						cg = cg.toString(16);
+						cb = cb.toString(16);
+						
+						$('#result2 td:nth-child(2)').css('background', '#'+cr+cb+cg);
+					}, 50);
+					setInterval(function(){
+						cr = Math.floor(Math.random() * 256);
+						cg = Math.floor(Math.random() * 256);
+						cb = Math.floor(Math.random() * 256);
+						
+						cr = cr.toString(16);
+						cg = cg.toString(16);
+						cb = cb.toString(16);
+						
+						$('#result2 td:nth-child(3)').css('background', '#'+cr+cb+cg);
+					}, 50);
+				})
+
+				$('#btn4').on('click', function(){
+					$('#result3 td:nth-child(1)').css('background', 'gray');
+					$('#result3 td:nth-child(2)').css('background', 'darkgray');
+					$('#result3 td:nth-child(3)').css('background', 'lightgray');
+					$('#result3 tr:first-child td').css('background', 'black').css('color', 'white');
+					//$('#result3 tr:nth-child(1) td').css('background', 'black').css('color', 'white');
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<div class="box box1">
+			<h3></h3>
+			<h4></h4>
+			<br>
+			<input id="btn1" type="button" value="first">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input id="btn2" type="button" value="first-child"><br><br>
+			<div id="result1">
+				<h1>여자에게 인기있는 남자들</h1>
+				<ol>
+					<li>능력있는 남자</li>
+					<li>돈 많은 남자</li>
+					<li>잘 생긴 남자</li>
+					<li>프로그래머</li>
+				</ol>
+							
+				<h1>남자에게 인기있는 여자들</h1>
+				<ol>
+					<li>예쁜 여자</li>
+					<li>귀여운 여자</li>
+					<li>섹시한 여자</li>
+				</ol>
+			</div>
+		</div>
+		
+		<br><hr><br>
+		
+		<div class="box box2">
+			<h3></h3>
+			<h4></h4>
+			<br>
+			<input id="btn3" type="button" value="first-child"><br><br>
+			<div id="result2">
+				<table border="1">
+					<tr>
+						<td>이름</td>
+						<td>주소</td>
+						<td>전화번호</td>
+					</tr>
+					<tr>
+						<td>홍길동</td>
+						<td>대전</td>
+						<td>010-222-333</td>
+					</tr>
+					<tr>
+						<td>진달래</td>
+						<td>서울</td>
+						<td>010-444-555</td>
+					</tr>
+					<tr>
+						<td>개나리</td>
+						<td>부산</td>
+						<td>010-666-777</td>
+					</tr>
+					<tr>
+						<td>무궁화</td>
+						<td>대구</td>
+						<td>010-888-999</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		
+		<br><hr><br>
+		
+		<div class="box box3">
+			<h3></h3>
+			<h4></h4>
+			<br>
+			<input id="btn4" type="button" value="first-child"><br><br>
+			<div id="result3">
+				<table border="1">
+					<tr>
+						<td>이름</td>
+						<td>주소</td>
+						<td>전화번호</td>
+					</tr>
+					<tr>
+						<td>홍길동</td>
+						<td>대전</td>
+						<td>010-222-333</td>
+					</tr>
+					<tr>
+						<td>진달래</td>
+						<td>서울</td>
+						<td>010-444-555</td>
+					</tr>
+					<tr>
+						<td>개나리</td>
+						<td>부산</td>
+						<td>010-666-777</td>
+					</tr>
+					<tr>
+						<td>무궁화</td>
+						<td>대구</td>
+						<td>010-888-999</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		
+		<br><hr><br>
+	</body>
+</html>

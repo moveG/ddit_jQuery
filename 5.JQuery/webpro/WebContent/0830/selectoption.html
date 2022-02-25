@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "UTF-8">
+		<title></title>
+		<link rel = "stylesheet" href = "../css/mystyle.css">
+		<style>
+			span{
+				border-bottom : 3px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		<h2>한개의 항목을 선택</h2>
+		<form action = "select.jsp" method = "get">
+			<select name = "car1">
+				<option value = "BMW">BMW</option>
+				<option value = "현기" selected>현기</option><!-- selected를 넣어주면 그 항목이 처음에 보이는 기본항목이 됨 -->
+				<option value = "벤츠">벤츠</option>
+				<option value = "랜드로버">랜드로버</option>
+				<option value = "제네시스" selected>제네시스</option><!-- selected를 여러개 넣으면 마지막에 넣은 항목이 기본항목이 됨-->
+				<option value = "도요타">도요타</option>
+			</select>
+			<button type = "submit">전송</button>
+		</form>
+		
+		<pre>
+			&lt;select name = "car2" <span>multiple = "multiple" size = "6"</span>>
+		</pre>
+		
+		<h2>여러개의 항목을 선택</h2>
+		<form action = "select.jsp" method = "get">
+			<select name = "car2" multiple = "multiple" size = "6"><!-- ctrl + 다중선택 -->
+				<option value = "BMW">BMW</option>
+				<option value = "현기" selected>현기</option>
+				<option value = "벤츠" selected>벤츠</option>
+				<option value = "랜드로버">랜드로버</option>
+				<option value = "제네시스" selected>제네시스</option>
+				<option value = "도요타">도요타</option>
+			</select>
+			<button type = "submit">전송</button>
+		</form>
+	</body>
+</html>

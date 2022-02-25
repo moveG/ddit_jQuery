@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "UTF-8">
+		<title></title>
+		<link rel = "stylesheet" href = "../css/mystyle.css">
+		<script>
+			//첫줄만 보면 일반function과 객체function의 구분은 불가능하다.
+			//function 내부의 내용을 보고 판단해야 한다.
+			/*==================================================================*/
+			function Rect(width, height) {
+			//객체function, 속성과 메서드가 포함됨, JAVA에서의 Class에 해당함
+				this.width = width;
+				this.height = height;
+				//this.xx는 존재하지 않지만, 자동으로 생성되어 사용이 가능해짐
+				
+				this.getArea = function() {
+					return this.width * this.height;	
+				}
+				this.getCircum = function() {
+					return (this.width + this.height) * 2;
+				}
+			}
+			//현재 버전
+			/* function Circle(rad) {
+				this.rad = rad;
+				
+				this.getArea = function() {
+					return Math.PI * Math.pow(this.rad, 2);	
+				}
+				this.getCircum = function() {
+					return 2 * Math.PI * this.rad;
+				}
+			} */
+			/*==================================================================*/
+			//es6 버전
+			class Circle {
+				constructor(rad){
+					this.rad = rad;
+				}
+				getArea() {
+					return Math.PI * Math.pow(this.rad, 2);
+				}
+				getCircum() {
+					return 2 * Math.PI * this.rad;
+				}
+			}
+			/*==================================================================*/
+			/* function proc1(){
+			//일반function, 객체를 이용한 단순 처리 로직
+			} */
+			/*==================================================================*/
+			function proc1() {
+				//Rect객체 생성, 처리, 사용
+				//rect = new Rect(4, 5);
+				garo = parseInt(prompt("가로길이를 입력하세요."));
+				sero = parseInt(prompt("세로길이를 입력하세요."));
+				
+				rect = new Rect(garo, sero);
+				
+				//출력
+				str = "사각형<br>";
+				str += "가로 : " + rect.width + "cm<br>";
+				str += "세로 : " + rect.height + "cm<br>";
+				str += "면적 : " + rect.getArea() + "cm²<br>";
+				str += "둘레 : " + rect.getCircum() + "cm<br>";
+				
+				document.querySelector("#result1").innerHTML = str;
+			}
+			function proc2() {
+				//Circle객체 생성, 처리, 사용
+				//circle = new Circle(3);
+				r = parseInt(prompt("반지름을 입력하세요."));
+				
+				circle = new Circle(r);
+				
+				//추가
+				circle.name = "원형";
+				circle.getRad = function() {
+					return this.rad;
+				}
+				
+				//출력
+				str = "이름 : " + circle.name + "<br>";
+				//str += "반지름 : " + circle.rad + "cm<br>";
+				str += "반지름 : " + circle.getRad() + "cm<br>";
+				str += "면적 : " + circle.getArea().toFixed(2) + "cm²<br>";
+				str += "둘레 : " + circle.getCircum().toFixed(2) + "cm<br>";
+				
+				document.querySelector("#result2").innerHTML = str;
+			}
+		</script>
+	</head>
+	<body>
+		
+		<div class = "box">
+			<h3>생성자를 이용한 객체 생성</h3>
+			<h4>function Rect(width, height) {속성, 메서드 정의}</h4>
+			<h4>function Circle(rad) {속성, 메서드 정의}</h4>
+			<h4></h4>
+			<br>
+			<input type = "button" value = "사각" onclick = "proc1()">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type = "button" value = "원" onclick = "proc2()"><br><br>
+			<div id = "result1"></div><br><br>
+			<div id = "result2"></div>
+		</div>
+		
+		<br><hr><br>
+	</body>
+</html>

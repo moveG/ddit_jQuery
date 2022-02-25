@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../css/mystyle.css">
+		<script src="../js/jquery-3.6.0.min.js" type=""></script>
+		<script>
+			$(function(){
+				//$('.pp').click(function(){})도 사용할 수 있음
+				//$('.pp').bind('click', function(){})도 사용할 수 있음
+				$('#result1 .pp').on('click', function(){
+					$(this).css('font-size', '+=5px');
+					//+=5px : 클릭할 때마다 5픽셀씩 글씨의 크기가 커짐
+				})
+				
+				$('#clone').on('click', function(){
+					//pp클래스 3개를 모두 복사하여 #result2로 붙여넣기
+					//이벤트는 복사되지 않음
+					$('#result1 .pp').clone().appendTo('#result2');
+					
+					//vpp = $('.pp').clone();
+					//vpp.appendTo('#result2');
+				})
+				
+				$('#clonetrue').on('click', function(){
+					//pp클래스 3개를 모두 복사하여 #result3로 붙여넣기
+					//이벤트까지 복사됨
+					$('#result1 .pp').clone(true).appendTo('#result3');
+					
+					//vpp = $('.pp').clone(true);
+					//vpp.appendTo('#result3');
+				})
+			})
+		</script>
+		<style>
+			.pp{
+				background : pink;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<h3>복사 메서드</h3>
+			<h4>ctrl+c에 해당 : append, prepend, before, after을 이용해서 붙여넣기를 한다.</h4>
+			<h4>clone() : 복사</h4>
+			<h4>clone(true) : 이벤트를 포함해서 복사</h4>
+			<h4></h4>
+			<br>
+			<input id="clone" type="button" value="clone">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input id="clonetrue" type="button" value="clonetrue"><br><br>
+			<div id="result1">
+				<p class="pp" id="p1">무궁화 꽃이 피었습니다.</p>
+				<p class="pp" id="p2">우리집 강아지는 복슬강아지</p>
+				<p class="pp" id="p3">김치피자탕수육 김피탕</p>
+			</div><br>
+			<div id="result2"></div><br>
+			<div id="result3"></div><br>
+		</div>
+		
+		<br><hr><br>
+	</body>
+</html>

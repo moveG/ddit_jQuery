@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "UTF-8">
+		<title></title>
+		<link rel = "stylesheet" href = "../css/mystyle.css">
+		<script>
+			//url에 대한 정보
+			proc1 = () => {
+				str = "";
+				str += "href = " + location.href + "<br>";
+				str += "protocol : " + location.protocol + "<br>"; 
+				str += "host : " + location.host + "<br>"; 
+				//host뒤에는 port가 붙어서 나온다.
+				//port가 생략되어 있어서 host에도 port가 생략되고 host만 출력된다.
+				str += "hostname : " + location.hostname + "<br>"; 
+				str += "port : " + location.port + "<br>"; 
+				str += "pathname : " + location.pathname + "<br>"; 
+				
+				document.querySelector('#result1').innerHTML = str;
+			}
+			
+			//자동으로 특정 페이지로 이동
+			proc2 = () => {
+				location.href = "test.jsp";
+			}
+			
+			//replace(url)
+			procReplace = (str) => {
+				location.replace(str);
+			}
+			
+			//reload() : 현재 페이지를 다시 로드
+			procReload = () => {
+				//1초가 경과한 후 어떤 문자를 출력(Math.random을 이용해 배열에서 선택)
+				arr = ["Hello", "HTML", "CSS", "JavaScript", "jQuery"];
+				
+				rnd = Math.floor(Math.random() * arr.length);
+				str = "<h1>" + arr[rnd] + "</h1>";
+				
+				document.getElementById('result2').innerHTML = str;
+				
+				setInterval(function(){
+					cr = Math.floor(Math.random() * 256);
+					cg = Math.floor(Math.random() * 256);
+					cb = Math.floor(Math.random() * 256);
+
+					document.getElementById('result2').style.color = `rgb(${cr}, ${cg}, ${cb})`;
+					document.querySelector('body').style.background = `rgb(${cr}, ${cg}, ${cb})`;
+				}, 50);
+				
+				setInterval(function(){
+					cr = Math.floor(Math.random() * 256);
+					cg = Math.floor(Math.random() * 256);
+					cb = Math.floor(Math.random() * 256);
+					
+					document.querySelector('#result2').style.background = `rgb(${cr}, ${cg}, ${cb})`;
+				}, 50);
+				
+				//다시 출력 이전 문서로 복귀함
+				setTimeout(function(){
+					location.reload();
+				}, 5000);
+			}
+		</script>
+	</head>
+	<body>
+		<div class = "box">
+			<h3>Location객체</h3>
+			<h4>url에 대한 정보</h4>
+			<br>
+			<input type = "button" value = "확인" onclick = "proc1()"><br><br>
+			<div id = "result1"></div>
+		</div>
+		
+		<br><hr><br>
+		
+		<div class = "box">
+			<h3>Location객체</h3>
+			<h4>자동으로 특정 페이지로 이동</h4>
+			<br>
+			<input type = "button" value = "확인" onclick = "proc2()"><br><br>
+			<h4>a태그에서 javascript함수를 이용하여 location.href 사용</h4>
+			<a href = "javascript:proc2()">공지사항목록</a><br><br>
+			
+			<h4>get방식으로 button에서 onclick = "location.href = 'test.jsp'" 사용</h4>
+			<button onclick = "location.href = 'test.jsp'">공지사항목록</button><br><br>
+			
+			<h4>새로운 문서로 대체(replace(url)) - 원래 문서로 돌아갈 수 없음</h4>
+			<button onclick = "procReplace('test.jsp')">공지사항목록</button><br><br>
+			
+			<h4>현재 페이지를 다시 로드</h4>
+			<h4>submit(전송)을 하지 않으려면, button의 type을 button으로 바꿔주는 것이 좋다.</h4>
+			<button type = "button" onclick = "procReload()">공지사항목록</button><br><br>
+			
+			<div id = "result2"></div>
+		</div>
+		
+		<br><hr><br>
+	</body>
+</html>

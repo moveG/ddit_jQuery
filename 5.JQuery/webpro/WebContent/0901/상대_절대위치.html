@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "UTF-8">
+		<title></title>
+		<style>
+			div{
+				width : 100px;
+				height : 100px;
+				margin : 20px;
+				border : 2px solid gray; 
+			}
+			#d1{
+				background : yellow;
+			}
+			#d2{
+				background : pink;
+				/*position : relative;
+				top : 40px;
+				left : 50px;*/
+			}
+			#d3{
+				background : blue;
+			}
+			#d4{
+				background : red;
+				/*position : absolute;
+				top : 40px;
+				left : 50px;*/
+			}
+		</style>
+		<script>
+			function proc1(){
+				//id가 d2인 div요소에 접근
+				var vd2 = document.getElementById('d2');
+				
+				//검색된 요소에 style을 설정
+				vd2.style.position = "relative";
+				vd2.style.top = "40px";
+				vd2.style.left = "50px";
+			}
+			function proc2(){
+				//id가 d4인 div요소에 접근
+				var vd4 = document.getElementById('d4');
+				
+				//검색된 요소에 style을 설정
+				vd4.style.position = "absolute";
+				vd4.style.top = "40px";
+				vd4.style.left = "50px";
+			}
+		</script>
+	</head>
+	<body>
+		<pre>
+			상대위치 : 기술한 순서대로 각각의 요소가 배치되는 정적위치를 기준으로 각 요소를 배치한다.
+			절대위치 : 컨테이너의 원점을 기준으로 각 요소를 배치한다.
+		</pre>
+		<div id = "d1"></div>
+		<div id = "d2"></div>
+		<div id = "d3"></div>
+		<div id = "d4"></div>
+		<br><br>
+		<input type = "button" onclick = "proc1()" value = "relative(상대위치)">
+		<input type = "button" onclick = "proc2()" value = "absolute(절대위치)">
+	</body>
+</html>

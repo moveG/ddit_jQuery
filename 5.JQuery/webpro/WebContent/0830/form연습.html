@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "UTF-8">
+		<title></title>
+		<link rel = "stylesheet" href = "../css/mystyle.css">
+		<style>
+		//<style type = "text/css">;
+			*{
+				//전체 스타일 지정방법;
+			}
+			label{
+				display : inline-block;
+				width : 80px;
+				height : 30px;
+			}
+			h3{
+				font-weight : bold;
+			}
+			div{
+				width : 40%;
+			}
+			#f1{
+				display : inline-block;
+				width : 25%;
+				margin : 10px;
+			}
+			#f2{
+				display : inline-block;
+				width : 20%;
+				margin : 10px;
+			}
+			#f1 input[name = email]{
+				border : 3px solid brown;
+			}
+			#f2 input[name = addr]{
+				border : 3px solid red;
+			}
+			fieldset{
+				border : 2px solid blue;
+				width : 95%;
+				padding : 20px;
+			}
+			hr{
+				display : inline-block;
+				width : 30%;
+			}
+			pre{
+				background : blue;
+				color : white;
+				font-weight : bold;
+				font-size : 30px;
+				text-align : center;
+			}
+			input{
+				background : green;
+			}
+			input[type = text]{
+				background : gray;
+				color : white;
+			}
+			input[type = button]{
+				background : black;
+				color : white;
+			}
+			//css보다 style이 더 우선된다.
+		</style>
+	</head>
+	<body>
+		<pre style = "background : pink;">폼연습</pre>
+		<!-- css파일보다 style이 우선되고, style보다 인라인 css가 우선된다. -->
+		<!-- 인라인 css는 권장되지 않는다. -->
+		<h2>연습1</h2>
+		<h3>이메일 전송 화면</h3>
+		<form id = "f1">
+			<fieldset>
+				<label>이름</label><input type = "text" name = "name"><br>
+				<label>이메일</label><input type = "text" name = "email"><br>
+				<label>내용</label><br>
+				<textarea rows = "10" cols = "60" name = "content"></textarea><br><br>
+				<button type = "submit">전송</button>
+				<button type = "reset">재설정</button>
+			</fieldset>
+		</form>
+		
+		<br>
+		<hr>
+		
+		<h2>연습2</h2>
+		<h3>회원 가입 화면</h3>
+		<form id = "f2">
+			<fieldset>
+				<label>이름</label><input type = "text" name = "name"><br>
+				<label>주소</label><input type = "text" name = "addr"><br>
+				<label>이메일</label><input type = "text" name = "email"><br>
+				<input type = "radio" name = "gender" value = "Male">Male<br>
+				<input type = "radio" name = "gender" value = "Female">Female<br><br>
+				<input type = "button" value = "Send">
+				<input type = "reset" value = "원래대로">
+				<button type = "submit">Send</button>
+				<button type = "reset">원래대로</button>
+			</fieldset>
+		</form>
+	</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "UTF-8">
+		<title></title>
+		<link rel = "stylesheet" href = "../css/mystyle.css">
+		<style>
+			div{
+				padding : 20px;
+				height : auto;
+				width : 50%;
+				border : 1px dotted blue;
+			}
+		</style>
+		<script>
+			window.onload = () => {
+				first = parseInt(prompt("첫번째 숫자를 입력하세요."));
+				second = parseInt(prompt("두번째 숫자를 입력하세요."));
+				
+				op = prompt("연산자를 입력하세요.(+, -, *, /)");
+				
+				//비교해서 연산
+				switch(op){
+					case '+':
+						res = first + second;
+						break;
+					case '-':
+						res = first - second;
+						break;
+					case '*':
+						res = first * second;
+						break;
+					case '/':
+						res = first / second;
+						break;
+				}
+				
+				//출력내용
+				str = `${first} ${op} ${second} = ${res}`;
+				
+				//div로 접근
+				document.querySelector('div').innerHTML = str;
+			}
+		</script>
+	</head>
+	<body>
+		<pre>
+		prompt를 이용하여 두 숫자를 입력받는다.
+		prompt를 이용하여 연산자를 입력받는다.
+		연산자를 비교하여 연산한 뒤에 div에 출력한다.
+		</pre>
+		<div></div>
+	</body>
+</html>

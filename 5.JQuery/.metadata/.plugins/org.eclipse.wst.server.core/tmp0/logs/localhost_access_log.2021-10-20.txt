@@ -1,0 +1,10 @@
+127.0.0.1 - - [20/Oct/2021:09:09:43 +0900] "GET / HTTP/1.1" 404 1074
+0:0:0:0:0:0:0:1 - - [20/Oct/2021:09:09:43 +0900] "GET /boardpro/board/board.html HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [20/Oct/2021:09:09:43 +0900] "GET /boardpro/js/jquery.serializejson.min.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [20/Oct/2021:09:09:43 +0900] "GET /boardpro/js/board.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [20/Oct/2021:09:09:44 +0900] "POST /boardpro/BoardList.do HTTP/1.1" 200 100
+0:0:0:0:0:0:0:1 - - [20/Oct/2021:09:09:53 +0900] "POST /boardpro/Insert.do HTTP/1.1" 200 49
+0:0:0:0:0:0:0:1 - - [20/Oct/2021:09:09:53 +0900] "POST /boardpro/BoardList.do HTTP/1.1" 200 304
+0:0:0:0:0:0:0:1 - - [20/Oct/2021:09:09:55 +0900] "GET /boardpro/UpdateHit.do?num=164 HTTP/1.1" 200 49
+0:0:0:0:0:0:0:1 - - [20/Oct/2021:09:09:55 +0900] "GET /boardpro/ReplyList.do?bonum=164 HTTP/1.1" 200 16
+0:0:0:0:0:0:0:1 - - [20/Oct/2021:09:09:56 +0900] "GET /boardpro/ReplyList.do?bonum=164 HTTP/1.1" 200 16

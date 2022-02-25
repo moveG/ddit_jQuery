@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "UTF-8">
+		<title></title>
+		<link rel = "stylesheet" href = "../css/mystyle.css">
+		<script>
+			/* a = prompt("수 입력").trim();
+			console.log(a);	//아무것도 입력하지 않았을때, 공백만 입력했을때 0으로 인식한다.
+			//숫자비교 : isNan(a) - a가 숫자가 아닌가?
+			//		- 그렇다(숫자가 아니다) - true
+			//		- 아니다(숫자가 맞다) - false
+			//trin() : 앞뒤의 공백을 제거
+			if(!isNaN(a) && a != 0){
+				//숫자인 경우
+				alert("숫자가 맞다.");
+			}else{
+				//숫자가 아닌 경우
+				alert("숫자가 아니다.");
+			} */
+			
+			proc1 = () => {
+				str = "";
+				while(true){
+					//숫자 입력 = prompt 이용
+					//num = parseInt(prompt("숫자를 입력하세요.").trim());
+					num = prompt("숫자를 입력하세요.").trim();
+					
+					//num이 유효한지 검사(숫자인지, 숫자가 아닌지, 공백인지, 문자인지...)
+					//if(isNaN(num)) continue;
+					if(isNaN(num) || num == 0){
+						//숫자가 아닌 경우
+						alert("다시 입력하세요.");
+						continue;
+					}
+					
+					//구구단
+					str += "<구구단 " + num + "단><br>";
+					for(i = 1; i < 10; i++){
+						str += num + " * " + i + " = " + (num * i) + "<br>";
+					}
+					str += "<br>";
+					//계속실행 여부를 판단
+					cont = confirm("계속 실행하시겠습니까?");
+					
+					//if(continue == false) break;
+					if(!cont) break;
+				}
+				//출력
+				document.querySelector("#result1").innerHTML = str;
+			}
+		</script>
+	</head>
+	<body>
+		<div class = "box">
+			<h3>숫자를 입력한다 - prompt를 이용하여 구구단을 출력</h3>
+			<h4>구구단을 출력</h4>
+			<h4>계속실행 여부를 입력 - confirm을 이용</h4>
+			<br>
+			<input type = "button" value = "확인" onclick = "proc1()"><br><br>
+			<div id = "result1"></div>
+		</div>
+		
+		<br><hr><br>
+	</body>
+</html>

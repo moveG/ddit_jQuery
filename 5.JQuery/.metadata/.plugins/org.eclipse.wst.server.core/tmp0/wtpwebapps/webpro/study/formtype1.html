@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "UTF-8">
+		<title></title>
+		<link rel = "stylesheet" href = "../css/mystyle.css">
+		<style>
+			form{
+				border : 2px solid orange;
+				margin : 20px;
+			}
+			span, label{
+				display : inline-block;
+				width : 70px;
+				height : 30px;
+			}
+		</style>
+		<script>
+			function proc(){
+				var em = document.getElementById("email");
+				var col = document.getElementById("color");
+				
+				alert("이메일 : " + em.value + ", 컬러 : " + col.value);
+				
+				var f = document.getElementById("f2");
+				f.style.background = col.value;
+			}
+		</script>
+	</head>
+	<body>
+		<pre>
+			입력요소 : Input타입의 종류
+			- text : 기본입력 요소, 문자, 숫자, 날짜 등의 모든 성질의 데이터 입력이 가능함
+			- password : 비밀번호 입력 
+			- date : 날짜형식의 데이터 
+			- submit : 전송, 제출
+			- button : 초기기능 없음, 원하는 기능을 부여하기 위해서 JavaScript가 필요함
+		</pre>
+		<form action = "input.jsp" method = "post">
+			<label>이메일</label><input type = "text" name = "email" value = "@.com"><br>
+			<label>URL</label><input type = "url" name = "url"><br>
+			<label>전화번호</label><input type = "text" name = "tel"><br>
+			<label>색상</label><input type = "color" name = "color"><br>
+			<label>날짜</label><input type = "date" name = "date"><br>
+			<label>숫자</label><input type = "number" name = "number" min = "1" max = "10" step = "1"><br>
+			<input type = "file" name = "file"><br><br>
+			<input type = "image" src = "../images/check.png">
+			
+			<input type = "submit" value = "제출">
+			<input type = "reset" value = "초기화">
+			<input type = "hidden" name = "pass" value = "12345678">
+		</form>
+		
+		<pre>
+			&lt;input type = "button" value = "제출1" onclick = "proc()">
+			- 우리가 만든 proc를 실행시켜라
+			&lt;input type = "button" value = "제출2" onclick = "alter('Hello~~~')">
+			- onclick하면 altet(창을 띄워라)해라. 그 안의 메시지는 Hello~~~이다(메시지에는 작은 따옴표를 넣어줌)
+			
+			//Id가 color인 input요소로 접근
+ 			var col = document.getElementById("color");
+ 			
+ 			//접근요소의 값을 가져오기 - value
+ 			alert(col.value);
+ 			
+ 			//id가 f2인 form요소로 접근
+			var f = document.getElementById("f2");
+			
+			//배경색을 col.value로 변경하시오.
+			f.style.background = col.value;
+		</pre>
+		
+		<form id = "f2" action = "input.jsp" method = "post">
+			<span>이메일</span><input type = "text" id = "email" name = "email"><br>
+			<span>URL</span><input type = "url" name = "url"><br>
+			<span>전화번호</span><input type = "text" name = "tel"><br>
+			<span>색상</span><input type = "color" id = "color" name = "color"><br>
+			<span>날짜</span><input type = "date" name = "date"><br>
+			<span>숫자</span><input type = "number" name = "number" min = "1" max = "10" step = "1"><br>
+			
+			<input type = "button" value = "제출1" onclick = "proc()">
+			<input type = "button" value = "제출2" onclick = "alert('Hello~~~')">
+		</form>
+	</body>
+</html>

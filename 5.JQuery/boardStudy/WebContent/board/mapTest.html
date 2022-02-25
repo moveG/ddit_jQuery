@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../css/mystyle.css">
+		<script src="../js/jquery-3.6.0.min.js"></script>
+		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1f40e53b023026aaa7ac30a1a7084ac3"></script>
+		<script>
+			$(function(){
+				$('#click').on('click', function(){
+					var container = $('#map')[0];
+					var options = {
+						center: new kakao.maps.LatLng(36.32485, 127.42001),
+						level: 1
+					};
+	
+					var map = new kakao.maps.Map(container, options);	
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<div class="bbox">
+			<h3></h3>
+			<h4></h4>
+			<br>
+			<input id="click" type="button" value="확인"><br><br>
+			<div id="map" style="width:900px;height:900px;"></div>
+			
+		</div>
+		
+		<br><hr><br>
+	</body>
+</html>

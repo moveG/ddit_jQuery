@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+			PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+			"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="board">
+	<select id="selectAll" resultClass="boardVO">
+		SELECT *
+		  FROM BOARD1
+		 ORDER BY NUM DESC 
+	</select>
+	
+	<select id="selectByPage" parameterClass="map" resultClass="boardVO">
+		<![CDATA[
+		SELECT A.*
+		  FROM (SELECT ROWNUM AS rnum, 
+		  			   B.*
+		  		  FROM (SELECT * 
+		  		  		  FROM BOARD1 
+						 ORDER BY NUM DESC) B
+				 WHERE ROWNUM <= #end#) A 
+		 WHERE A.rnum >= #start#
+		]]>
+	</select>
+	
+	<select id="listCount" resultClass="int">
+		SELECT COUNT(*)
+		  FROM BOARD1
+	</select>
+	
+	<insert id="insertBoard" parameterClass="boardVO">
+		INSERT INTO BOARD1
+		VALUES(
+			BOARD1_NUM_SEQ.nextval,
+			#subject#, 
+			#writer#, 
+			#mail#,
+			#password#,
+			#content#,
+			0,
+			#wip#,
+			SYSDATE
+		)
+		<selectKey keyProperty="num" resultClass="int">
+			SELECT BOARD1_NUM_SEQ.currval
+			  FROM DUAL
+		</selectKey>
+	</insert>
+	
+	<update id="updateHit" parameterClass="int">
+		UPDATE BOARD1
+		   SET HIT = HIT + 1
+		 WHERE NUM = #data#
+	</update>
+	
+	<delete id="deleteBoard" parameterClass="int">
+		DELETE BOARD1
+		 WHERE NUM = #data#
+	</delete>
+	
+	<update id="updateBoard" parameterClass="boardVO">
+		UPDATE BOARD1
+		   SET SUBJECT = #subject#,
+		       MAIL = #mail#,
+		       PASSWORD = #password#,
+		       CONTENT = #content#,
+		       WIP = #wip#,
+		       WDATE = SYSDATE
+		 WHERE NUM = #num#
+	</update>
+</sqlMap>

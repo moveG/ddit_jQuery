@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "UTF-8">
+		<title></title>
+		<style>
+			p{
+				font-size : 1.5em;
+			}
+		</style>
+	</head>
+	<body>
+		<p>id 접근 : document.getElementById('x')</p>
+		<p>class 접근 : document.getElementsByClassName('abc') - 배열로 리턴함</p>
+		<p>태그이름 접근 : document.getElementsByTagName('div') - 배열로 리턴함</p>
+		<br><br>
+		<hr>
+		<br><br>
+		<p>id 접근 : document.querySelector('#x')</p>
+		<p>class 접근 : document.querySelector('.abc') - 첫번째만 리턴함</p>
+		<p>태그이름 접근 : document.querySelector('div') - 첫번째만 리턴함</p>
+		<br><br>
+		<p>모든 class 접근 : document.querySelectorAll('.abc') - 배열로 리턴함</p>
+		<p>모든 태그이름 접근 : document.querySelectorAll('div') - 배열로 리턴함</p>
+		<br><br>
+		<p>form이름을 이용한 접근 : document.formname.요소name</p>
+		<p>
+		document.ff.id<br>
+		document.ff.pass<br>
+		<br>
+		&lt;form name = "ff"><br>
+			아이디 &lt;input type = "text" name = "id"><br>
+			비밀번호 &lt;input type = "password" name = "pass"><br>
+		&lt;/form><br>
+		</p>
+	</body>
+</html>

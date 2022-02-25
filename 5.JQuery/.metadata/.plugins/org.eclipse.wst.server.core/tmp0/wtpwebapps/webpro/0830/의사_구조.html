@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "UTF-8">
+		<title></title>
+		<style>
+			table{	//id가 t1인 table;
+				border : 2px solid blue;
+				margin : 20px auto;
+			}	
+			td{
+				width : 150px;
+				height : 50px;
+			}	
+			#t1 td:nth-child(1){
+				background : lightgray;
+			}
+			#t1 td:nth-child(2n){
+				background : #12f9ef;
+			}
+			#t1 td:nth-child(2n+1){
+				background : #f4d9f5;
+			}
+			#t2 tr:nth-child(1){	//배경색이 이미 td로 적용되어서 tr로는 접근할 수 없음;
+				background : blue;
+			}
+			#t2 tr:nth-child(1) > td{	//tr의 자식인 td;
+				background : lightgreen;
+			}
+			.odd{
+				background : rgba(231, 100, 189, 0.5); //rgb'a' : 투명도 설정(0.0 ~ 1.0);
+			}
+			.even{
+				background : rgba(98%, 80%, 67%, 0.7);
+			}
+		</style>
+	</head>
+	<body>
+		<table id = "t1" border = "1">
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+		
+		<table id = "t2" border = "1">
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+		
+		<table id = "t3" border = "1">
+			<tr class = "odd">
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr class = "even">
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr class = "odd">
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr class = "even">
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+	</body>
+</html>

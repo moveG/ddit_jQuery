@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../css/mystyle.css">
+		<script src="../js/jquery-3.6.0.min.js" type=""></script>
+		<script>
+			$(function(){
+				$('#enabled').on('click', function(){
+					//$('form *:emabled') : form 아래의 모든 것('*')들 중 enabled한 것들
+					$('#result1 form :enabled').css('border', '2px solid red');
+					
+					str = "";
+					$('#result1 form *:enabled').each(function(i, v){
+						//$('form *:enabled')[i],
+						//v = $('form *:enabled')[i]
+						//this = $('form *:enabled')[i]
+						//this를 사용하면 i, v는 생략이 가능함
+						vname = $(this).attr('name');
+						
+						if(vname != undefined) str += `name = ${vname} \n`;
+					})
+					alert(str);
+				})
+				
+				$('#disabled').on('click', function(){
+					$('#result1 form :disabled').css('border', '2px solid blue');
+					
+					vtype = $('#result1 form *:disabled').attr('type');
+					vname = $('#result1 form *:disabled').attr('name');
+					
+					alert("type : " + vtype + ", name : " + vname);
+				})
+				
+				$('#btn2').on('click', function(){
+					str = "";
+					//str += $('input[type=checkbox]:checked').val();
+					$('#result2 input:checkbox:checked').each(function(){
+						//str += $('input:checkbox:checked').val();//첫번째 것만 선택됨, 여러개를 체크해도 첫번째 것이 여러번 출력됨
+						str += $(this).val() + " ";//순서대로 체크한 것이 모두 선택됨
+					})
+					
+					alert(str);
+				})
+				
+				$('#btn3').on('click', function(){
+					str = $('#result3 input:radio:checked').val();
+					
+					alert(str);
+				})
+				
+				$('#spring').on('change', function(){
+					str = "";
+					//$('this option') : this 내부의 option, 사용할 수 없음(this는 ''안에 넣을 수 없음)
+					//str += $('option:selected', this).val() + "\n";
+
+					$('option:selected', this).each(function(){	//this : #spring을 가리킴
+						str += $(this).val() + "\n";	//this : option:selected을 가리킴
+					})
+					
+					alert(str);
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<div class="box">
+			<h3>상태필터</h3>
+			<h4>사용 가능 : $('form :enabled')</h4>
+			<h4>사용 불가능 : $('form :disabled')</h4>
+			<h4>요소의 속성을 가져오거나 설정할 수 있음</h4>
+			<h4>attr('속성명') : ex) attr('type') - 속성의 type를 가져올 수 있음</h4>
+			<h4>attr('속성명', '값') : ex) attr('type', 'button') - 속성의 type을 button으로 설정함</h4>
+			<br>
+			<input id="enabled" type="button" value="enabled">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input id="disabled" type="button" value="disabled"><br><br>
+			<div id="result1">
+				<form> 
+					<input type="text" name="id" disabled="disabled"><br><br>
+					<input type="password" name="pass">
+					<br><br>
+					<select name="disSelect">
+						<option>Option1</option>
+						<option>Option2</option>
+						<option>Option3</option>
+						<option>Option4</option>
+					</select>
+					<br><br>
+					<textarea name="enTextarea" rows=10 cols=20>text</textarea><br><br>
+					<input name="btn" type="button" value="확인" onclick="alert('hello')"><br>
+				</form>
+			</div>
+		</div>
+		
+		<br><hr><br>
+		
+		<div class="box">
+			<h3>상태필터</h3>
+			<h4>:checked : checkedbox, radio</h4>
+			<br>
+			<input id="btn2" type="button" value="확인"><br><br>
+			<div id="result2">
+				<form>
+					취 미 :
+					<input type="checkbox" name="hobby" value="여행" checked>여행
+					<input type="checkbox" name="hobby" value="장기">장기
+					<input type="checkbox" name="hobby" value="바둑">바둑
+					<input type="checkbox" name="hobby" value="독서" >독서
+					<input type="checkbox" name="hobby" value="낚시">낚시<br><br>
+				</form>
+			</div>
+		</div>
+		
+		<br><hr><br>
+		
+		<div class="box">
+			<h3>상태필터</h3>
+			<h4>:checked : checkedbox, radio</h4>
+			<br>
+			<input id="btn3" type="button" value="확인"><br><br>
+			<div id="result3">
+				<form>
+					취 미 :
+					<input type="radio" name="rhobby" value="여행">여행
+					<input type="radio" name="rhobby" value="장기">장기
+					<input type="radio" name="rhobby" value="바둑">바둑
+					<input type="radio" name="rhobby" value="독서" >독서
+					<input type="radio" name="rhobby" value="낚시" checked>낚시<br><br>
+				</form>
+			</div>
+		</div>
+		
+		<br><hr><br>
+		
+		<div class="box">
+			<h3>상태필터</h3>
+			<h4>:selected - select option을 대상으로함</h4>
+			<br>
+			<div id="result4">
+				<form>
+					봄소식 : <br><br>
+					<select name="spring" id="spring" multiple size="6">
+					<!-- multiple : 여러개 선택 가능 -->
+					<!-- size : 보여줄 항목의 개수 -->
+						<option value="개나리">개나리</option>
+						<option value="진달래" selected>진달래</option>
+						<option value="민들레">민들레</option>
+						<option value="벚꽃" selected>벚꽃</option>
+						<option value="목련">목련</option>
+						<option value="철쭉">철쭉</option>
+					</select>
+				</form>
+			</div>
+		</div>
+		
+		<br><hr><br>
+	</body>
+</html>

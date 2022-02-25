@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../css/mystyle.css">
+		<script src="../js/jquery-3.6.0.min.js"></script>
+		<script>
+			$(function(){
+				$('.box1 form').on('submit', function(){
+					//data = $('box1 form').serialize();
+					info = $(this).serialize();
+					
+					//비동기 전송
+					$.ajax({
+						url : 'submit.jsp',
+						type : 'post',
+						data : info,
+						success : function(result){
+							$('#result1').html(result);
+						},
+						error : function(fail){
+							alert(fail.status);
+						},
+						dataType : 'html'							
+					})
+				})
+			})
+		</script>
+		<style>
+			label{
+				display : inline-block;
+				width : 80px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<h3>동기 방식</h3>
+			<h4>- 전체 페이지로 응답결과를 받음</h4>
+			<h4>- input type=submit을 클릭하면 곧바로 form의 action='submit.jsp'가 실행됨</h4>
+			<form action="submit.jsp" method="post">
+				<label>아이디</label><input type="text" id="id" name="id"><br>
+				<label>이름 </label><input type="text" id="name" name="name"><br>
+				<label>전화번호</label><input type="text" id="tel" name="tel"><br>
+				<label>주소</label><input type="text" id="addr" name="addr"><br><br>
+				<input type="submit" id="sync" value="전송"><br>
+			</form>
+		</div>
+		
+		<br><hr><br>
+		
+		<div class="box box1">
+			<h3>비동기 방식</h3>
+			<h4>- 현재 페이지의 일부분에 응답결과를 받음</h4>
+			<h4>- input type=submit에 대한 이벤트는 script에서 수행</h4>
+			<h4>- form태그 안에 onsubmit="return false;" 문장을 기술함(위의 방식과 다르게 script를 거쳐서 실행되게 하기 위해서)</h4>
+			<h4>- form을 이용하여 on('submit')으로 실행</h4>
+			<form action="submit.jsp" method="post" onsubmit="return false;">
+				<label>아이디</label><input type="text" id="id" name="id"><br><!-- JSP에서는 name을 이용함 -->
+				<label>이름 </label><input type="text" id="name" name="name"><br>
+				<label>전화번호</label><input type="text" id="tel" name="tel"><br>
+				<label>주소</label><input type="text" id="addr" name="addr"><br><br>
+				<input type="submit" id="async" value="전송"><br>
+			</form>
+			<br>
+			<div id="result1"></div>
+		</div>
+	</body>
+</html>

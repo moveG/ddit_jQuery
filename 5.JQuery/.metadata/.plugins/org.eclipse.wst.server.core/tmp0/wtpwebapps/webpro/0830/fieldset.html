@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "UTF-8">
+		<title></title>
+		<style>
+			label{
+				display : inline-block;
+				width : 80px;
+				height : 30px;
+			}
+			form{
+				border : 2px solid orange;
+				margin : 10px;
+				padding : 10px;
+				width : 50%;	//화면의 50%;
+			}
+			fieldset{
+				border : 2px solid pink;
+				margin : 10px;
+				padding : 10px;
+				width : 95%;	//form의 95%;
+			}
+			.gend{
+				width : 32px;
+				margin-right : 10px;
+			}
+			div{
+				float : left;
+				width : 100px;
+				margin-right : 20px;
+			}
+			//위에서부터 순차적으로 적용되기 때문에 순서가 중요함;
+		</style>
+		
+		<script>
+		//<script type = "text/javascript">;
+		//type은 생략가능
+			function proc1(){
+				alert("asdf");
+			}
+		</script>
+	</head>
+	<body>
+		<form action = "aa.jsp" onsubmit = "return false">	<!-- return false : action이 실행되지 않음 -->
+			<fieldset>
+				<legend>인적사항 입력</legend>
+				<label>이름</label><input autofocus required type = "text" name = "name"><br>
+				<!-- required : 입력여부를 확인함, 필수항목이라는 뜻, 입력이 필수, 빈칸으로 출력버튼을 누르면 빈칸이라는 경고창을 출력함 -->
+				<!-- autofocus : 첫 실행시 초기 커서 위치 설정 -->
+				<label>주소</label><input type = "text" name = "addr" readonly value = "대전광역시"><br>
+				<!-- readonly : 읽기전용 -->
+				<!-- value : 초기값 -->
+				<label>전화번호</label><input type = "text" name = "tel" placeholder = "010-1234-5678" pattern = "\d{3}-[0-9]{3,4}-\d{4}" title = "telll"><br>
+				<!-- pattern : 입력형태를 지정함 -->
+				<!-- placeholder : 입력힌트 -->
+				<!-- 값을 입력하지 않고 submit을 하면 value나 placeholder도 서버로 넘어간다. -->
+				<!-- title : 입력칸에 마우스 커서를 올려놓으면 지정한 문자가 말풍선으로 보임 -->
+				<label>성별</label>
+				<input type = "radio" name = "gender1" value = "남자">남자
+				<input type = "radio" name = "gender1" value = "여자">여자<br>	<!-- radio버튼을 사용하려면 name이 동일해야 한다 -->
+				
+				<hr>
+				
+				<div>
+					<label class = "gend">남자</label>
+					<input type = "radio" name = "gender2" value = "남자">
+				</div>
+				<div>
+				<label class = "gend">여자</label>	<!-- label for = ""는 id = ""과 동일하다 -->
+				<input type = "radio" name = "gender2" value = "여자"><br>
+				</div>
+			</fieldset>
+			
+			<fieldset>
+				<legend>경력사항 입력</legend>
+				<label>회사이름</label><input type = "text" name = "name"><br>
+				<label>기간</label><input type = "text" name = "addr"><br>
+				<label>전화번호</label><input type = "text" name = "tel"><br>
+			</fieldset>
+			
+			<fieldset>
+				<legend>봉사활동 입력</legend>
+				<label>봉사단체</label><input type = "text" name = "name"><br>
+				<label>기간</label><input type = "text" name = "addr"><br>
+				<label>전화번호</label><input type = "text" name = "tel"><br>
+			</fieldset>
+			
+			<img src = "../images/가구1.jpg" alt = "가구1.jpg" title = "가구1">
+			
+			<input type = "button" onclick = "proc1()" value = "확인">
+			<input type = "submit" onclick = "proc1()" value = "확인">
+		</form>
+	</body>
+</html>

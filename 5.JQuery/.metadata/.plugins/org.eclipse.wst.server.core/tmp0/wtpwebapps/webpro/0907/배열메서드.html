@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "UTF-8">
+		<title></title>
+		<link rel = "stylesheet" href = "../css/mystyle.css">
+		<style>
+		.box input[type = button]{
+			border-radius : 0%;
+			border : none;
+			width : 100px;
+			height : 30px;
+		}
+		</style>
+		<script>
+			fruits = ["사과", "복숭아", "바나나", "사과", "참외", "파인애플", "사과"];
+			
+			//indexOf(item)
+			function proc1() {
+				item = prompt("찾는 과일 입력하세요.");
+				idx = fruits.indexOf(item);
+				
+				console.log("idx = " + idx);
+				
+				str = "찾는 과일 : " + item;
+				
+				if(idx < 0){
+					str += "은(는) 없습니다.";
+					
+				}else{
+					str += "은(는) " + idx + "번째 있습니다.";
+				}
+				
+				document.getElementById('result1').innerHTML = str;
+			}
+			
+			//lastIndexOf(item)
+			function proc2() {
+				item = prompt("찾는 과일 입력하세요.");
+				idx = fruits.lastIndexOf(item);
+				
+				console.log("idx = " + idx);
+				
+				str = "찾는 과일 : " + item;
+				
+				if(idx < 0){
+					str += "은(는) 없습니다.";
+					
+				}else{
+					str += "은(는) " + idx + "번째 있습니다.";
+				}
+				
+				document.getElementById('result2').innerHTML = str;
+			}
+			
+			//indexOf(item, start)
+			function proc3() {
+				item = prompt("찾는 과일 입력하세요.");
+				idx = fruits.indexOf(item, 1);
+				
+				console.log("idx = " + idx);
+				
+				str = "찾는 과일 : " + item;
+				
+				if(idx < 0){
+					str += "은(는) 없습니다.";
+					
+				}else{
+					str += "은(는) " + idx + "번째 있습니다.";
+				}
+				
+				document.getElementById('result3').innerHTML = str;
+			}
+			
+			//indexOf(item, start)
+			function proc4() {
+				//모든 사과를 검색하는 방법(0, 3, 6)
+				item = prompt("찾는 과일 입력하세요.");
+				
+				idx = 0;
+				itemidx = "";
+				
+				while(true){
+					idx = fruits.indexOf(item, idx);
+					
+					if(idx < 0) break;
+
+					itemidx += idx + " ";
+					idx++;
+				}
+				
+				str = "찾는 과일 : " + item;
+				
+				if(itemidx == ""){
+					str += "은(는) 없습니다.";
+				}else{
+					str += "은(는) " + itemidx + "번째 있습니다.";
+				}
+				
+				document.getElementById('result4').innerHTML = str;
+			}
+			
+			//push(a, b, c, ...)
+			function proc5() {
+				str = "추가하기 전 : " + fruits + "<br>";
+				
+				item1 = prompt("추가할 과일을 입력하세요.");
+				item2 = prompt("추가할 과일을 입력하세요.");
+				item3 = prompt("추가할 과일을 입력하세요.");
+				
+				fruits.push(item1, item2, item3);
+				
+				str += "추가 후 : " + fruits + "<br>";
+				
+				document.getElementById('result5').innerHTML = str;
+			}
+			
+			//pop()
+			function proc6() {
+				str = "삭제하기 전 : " + fruits + "<br>";
+				
+				fruits.pop();
+				
+				str += "삭제 후 : " + fruits + "<br>";
+				
+				document.getElementById('result6').innerHTML = str;	
+			}
+			
+			//shift()
+ 			function proc7() {
+				str = "삭제하기 전 : " + fruits + "<br>";
+				
+				fruits.shift();
+				
+				str += "삭제 후 : " + fruits + "<br>";
+				
+				document.getElementById('result7').innerHTML = str;	
+			}
+			
+			//unshift(a, b, c, ...)
+			function proc8() {
+				str = "추가하기 전 : " + fruits + "<br>";
+				
+				item1 = prompt("추가할 과일을 입력하세요.");
+				item2 = prompt("추가할 과일을 입력하세요.");
+				item3 = prompt("추가할 과일을 입력하세요.");
+				
+				fruits.unshift(item1, item2, item3);
+				
+				str += "추가 후 : " + fruits + "<br>";
+				
+				document.getElementById('result8').innerHTML = str;
+			}
+			
+			//slice(start, end)
+			function proc9() {
+				//1~5(1, 2, 3, 4)
+				newf = fruits.slice(1, 5);
+				
+				str = "원래 배열 : " + fruits + "<br>";
+				str += "잘라서 새로 만든 배열 : " + newf + "<br>";
+				
+				document.getElementById('result9').innerHTML = str;	
+			}
+			
+			//splice(index, n, a, b, c, ...)
+			proc10 = () => {
+				str = "수정 전 배열 : " + fruits + "<br>";
+				
+				fruits.splice(1, 2, "치킨", "피자", "족발");
+				str += "수정 후 배열 splice(1, 2, '치킨', '피자', '족발'): " + fruits + "<br>";
+				
+				fruits.splice(3, 0, "수육", "짬뽕");
+				str += "수정 후 배열 splice(3, 0, '수육', '짬뽕'): " + fruits + "<br>";
+				
+				fruits.splice(5, 2);
+				str += "수정 후 배열 splice(5, 2): " + fruits + "<br>";
+
+				document.getElementById('result10').innerHTML = str;
+			}
+			
+			//a.concat(b, c)
+			proc11 = () => {
+				a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+				
+				str = "수정 전 배열 : " + fruits + "<br>";
+
+				fa = fruits.concat(a);
+				
+				str += "수정 후 배열 : " + fa + "<br>";
+				
+				document.getElementById('result11').innerHTML = str;
+			}
+			
+			//join()
+			proc12 = () => {
+				str = "수정 전 배열 : " + fruits + "<br>";
+				str += "개수 : " + fruits.length + "개<br>";//배열의 개수
+					
+				//배열을 문자열로 변경	
+				fa = fruits.join("/");
+				
+				str += "수정 후 문자열 : " + fa + "<br>";
+				
+				str += "개수 : " + fa.length + "개<br>";//문자의 개수
+				document.getElementById('result12').innerHTML = str;
+			}
+			
+			//reverse()
+			proc13 = () => {
+				str = "수정 전 배열 : " + fruits + "<br>";
+				
+				fruits.reverse();
+				
+				str += "reverse() 실행 후 배열 : " + fruits + "<br>";
+				
+				document.getElementById('result13').innerHTML = str;
+			}
+			
+			//sort() : 사전순O(1, 11, 2, 3), 오름차순X(1, 2, 3, 11)
+			proc14 = () => {
+				str = "수정 전 배열 : " + fruits + "<br>";
+				
+				fruits.sort();
+				
+				str += "sort() 실행 후 배열 : " + fruits + "<br>";
+				
+				document.getElementById('result14').innerHTML = str;
+			}
+			
+			//sort() : 사전순, 오름차순
+			proc15 = () => {
+				num = [10, 89, 26, 33, 456, 41, 50, 200];
+				str = "수정 전 배열 : " + num + "<br>";
+				
+				num.sort();
+				str += "sort() 실행 후 배열(사전순) : " + num + "<br>";
+				
+				num.sort(function(a, b) {return a - b});
+				//return값이 양수이면 두 숫자의 자리를 변경하고, 음수이면 변경하지 않음
+				str += "sort() 실행 후 배열(오름차순) : " + num + "<br>";
+
+				//num.sort(function(a, b) {return b - a});
+				num.sort(function(a, b) {return -(a - b)});
+				str += "sort() 실행 후 배열(내림차순) : " + num + "<br>";
+				
+				document.getElementById('result15').innerHTML = str;
+			}
+		</script>
+	</head>
+	<body>
+		<div class = "box">
+			<h3>배열 메서드</h3>
+			<h4>indexOf(item) : 배열에서 item의 위치(배열의 인덱스)를 리턴, 존재하지 않으면 -1을 리턴</h4>
+			<h4>indexOf(item, start) : 배열에서 item의 위치를 리턴(start에서 검색 시작)</h4>
+			<h4>lastIndexOf(item) : 배열에서 item의 위치를 리턴(뒤에서부터 검색)</h4>
+			<h4>lastIndexOf(item, start) : 배열에서 item의 위치를 리턴(뒤에서부터 검색, start에서 검색 시작)</h4>
+			<br>
+			<input type = "button" value = "indexOf" onclick = "proc1()">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type = "button" value = "lastIndexOf" onclick = "proc2()">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type = "button" value = "indexOf" onclick = "proc3()">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type = "button" value = "indexOf" onclick = "proc4()"><br><br>
+			<div id = "result1"></div><br>
+			<div id = "result2"></div><br>
+			<div id = "result3"></div><br>
+			<div id = "result4"></div>
+		</div>
+		
+		<br><hr><br>
+		
+		<div class = "box">
+			<h3>배열 메서드</h3>
+			<h4>push(a, b, c, ...) : 배열의 끝에 a, b, c, ...를 추가</h4>
+			<h4>pop() : 배열의 끝의 요소를 제거</h4>
+			<br>
+			<input type = "button" value = "push" onclick = "proc5()">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type = "button" value = "pop" onclick = "proc6()"><br><br>
+			<div id = "result5"></div><br>
+			<div id = "result6"></div>
+		</div>
+		
+		<br><hr><br>
+		
+		<div class = "box">
+			<h3>배열 메서드</h3>
+			<h4>shift() : 배열의 첫 요소를 제거</h4>
+			<h4>unshift(a, b, c, ...) : 배열의 처음에 a, b, c, ...를 추가</h4>
+			<br>
+			<input type = "button" value = "shift" onclick = "proc7()">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type = "button" value = "unshift" onclick = "proc8()"><br><br>
+			<div id = "result7"></div><br>
+			<div id = "result8"></div>
+		</div>
+		
+		<br><hr><br>
+		
+		<div class = "box">
+			<h3>배열 메서드</h3>
+			<h4>slice(start, end) : start ~ end 사이의 요소를 추출해서 새로운 배열을 생성(end는 포함되지 않음)</h4>
+			<h4>splice(index, n, a, b, c, ...) : index 위치에서 n개를 삭제하고, a, b, c, ...를 추가한다.</h4>
+			<h4>(a, b, c,...이 없으면 삭제만 수행함, n이 0이면 추가만 수행함)</h4>
+			<br>
+			<input type = "button" value = "slice" onclick = "proc9()">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type = "button" value = "splice" onclick = "proc10()"><br><br>
+			<div id = "result9"></div><br>
+			<div id = "result10"></div>
+		</div>
+		
+		<br><hr><br>
+		
+		<div class = "box">
+			<h3>배열 메서드</h3>
+			<h4>a.concat(b, c) : a배열과 b배열과 c배열을 하나로 합친다.</h4>
+			<h4>join() : 하나의 배열을 문자열로 변환하면서 사이에 ','를 추가한다.</h4>
+			<h4>join("/") : 하나의 배열을 문자열로 변환하면서 사이에 '/'를 추가한다.</h4>
+			<br>
+			<input type = "button" value = "concat" onclick = "proc11()">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type = "button" value = "join" onclick = "proc12()"><br><br>
+			<div id = "result11"></div><br>
+			<div id = "result12"></div>
+		</div>
+		
+		<br><hr><br>
+		
+		<div class = "box">
+			<h3>배열 메서드</h3>
+			<h4>reverse() 배열의 순서를 뒤집는다.</h4>
+			<h4>sort() : 배열을 사전순으로 정렬한다.</h4>
+			<h4>사전순O(1, 11, 2, 3), 오름차순X(1, 2, 3, 11)</h4>
+			<h4>sort(function(a, b) {return a - b}) : 배열을 오름차순으로 정렬한다.</h4>
+			<br>
+			<input type = "button" value = "reverse" onclick = "proc13()">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type = "button" value = "sort" onclick = "proc14()">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type = "button" value = "sort" onclick = "proc15()"><br><br>
+			<div id = "result13"></div><br>
+			<div id = "result14"></div><br>
+			<div id = "result15"></div>
+		</div>
+	</body>
+</html>

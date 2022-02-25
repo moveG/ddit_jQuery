@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "UTF-8">
+		<title></title>
+		<link rel = "stylesheet" href = "../css/mystyle.css">
+		<style></style>
+		<script>
+			//function calc() { }
+			//calc = function() { }
+			//calc = () => { }
+			calc = function(){
+				//입력요소에 접근한다. - id가 'x'와 'y'인 요소에 접근
+				//vx = document.getElementById('x');
+				//vy = document.getElementById('y');
+				vx = document.querySelector('#x');
+				vy = document.querySelector('#y');
+				
+				
+				xvalue = parseInt(vx.value);
+				yvalue = parseInt(vy.value);
+
+				sum = xvalue + yvalue;
+				
+				//console.log("x = " + xvalue + ", y = " + yvalue + ", sum = " + sum);
+				
+				//id가 sum인 요소로 접근한다.
+				vsum = document.getElementById('sum');
+				
+				//출력
+				vsum.value = sum;
+				
+			}
+		</script>
+	</head>
+	<body>
+		<pre>
+			value사용하기
+				- input요소, select option, textarea에서 사용
+				- value : 값을 얻음 - get / 결과값은 문자열
+				- value = 값 : 값을 출력함 - set
+				
+				1. html요소에서 입력받은 값을 script로 전달하기
+				   value
+				2. script에서 계산된 값을 html input요소에 출력하기
+				   value = 값
+				
+				- input요소, select option, textarea를 제외한 요소에서 사용	   
+				- textContent - get
+				- textComtent = '내용' - set
+				- innerHTML - get
+				- innerHTML = '내용' - set
+		</pre>
+		<form>
+			첫번째 수 : <input type = "text" id = "x"><br>
+			두번째 수 : <input type = "text" id = "y"><br>
+			<br>
+			<input type = "button" value = "계산" onclick = "calc()"><br>
+			<br>
+			결과 : <input type = "text" id = "sum">			
+		</form>
+		
+	</body>
+</html>

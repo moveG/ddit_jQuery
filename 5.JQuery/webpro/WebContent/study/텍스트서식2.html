@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "UTF-8">
+		<link rel = "stylesheet" href = "../css/mystyle.css">
+		<title></title>
+		<style>
+			div{
+				border : 2px solid green;
+				width : 50%;
+				margin-left : 10%;
+				margin-top : 50px;
+				padding : 10px;
+			}
+			p{
+				border : 2px solid orange;
+			}
+			mark{
+				background : orange;
+			}
+			img{
+				margin-left : 32%;
+				width : 300px;
+				height : 300px;
+			}
+			sub{
+				background : green;
+				color : white;
+				width : 500px;
+				height : 50px;
+				//inline요소는 사이즈를 지정해도 적용이 되지 않음;
+			}
+			sup{
+				background : blue;
+				color : white;
+			}
+		</style>
+	</head>
+	<body>
+		<pre>
+			특수문자
+				- 공백 : &nbsp; &ampnbsp;
+				- < : &lt; &amplt;
+				- > : &gt; &ampgt;
+				- & : &amp; &ampamp;
+				- "" : &quot;&quot; &ampquot;
+		</pre>
+		<img src = "../images/image2.jpg" alt = "image2.jpg">
+		<hr color = "blue">
+		<div>
+			<p><b>이 텍스트는 bold입니다.</b></p>
+			<p><strong>이 텍스트는 strong입니다.</strong></p>
+			<p><i>이 텍스트는 italic입니다.</i></p>
+			<p><em>이 텍스트는 emphasized입니다.</em></p>
+			<p><code>이 텍스트는 code입니다.</code></p>
+			<p><sub>subscript</sub>이고, <sup>superscript</sup>입니다.</p>
+			<p><mark>여기는 "mark"태그로 작성된 문장입니다.</mark></p>
+			<p style = "color : white; background : green;">여기는 style을 태그에 직접 설정한 문장입니다.</p>
+			<p>공백은 아무리              스페이스를 눌러도 한번만 적용됩니다.</p>
+			<p>공백은 &nbsp;&nbsp;&nbsp;&nbsp;특수문자(&ampnbsp;)를 사용해야 여러칸을 띄울 수 있습니다.</p>
+			<p>쌍따옴표는 "특수문자(&ampquot;)"를 사용하지 않아도 출력이 &quot;가능&quot;합니다.</p>
+		</div>
+	</body>
+</html>

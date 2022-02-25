@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "UTF-8">
+		<title></title>
+		<link rel = "stylesheet" href = "../css/mystyle.css">
+		<script>
+			function calc(a){
+				//입력한 값 가져오기(value)
+				xvalue = parseInt(document.getElementById("x").value);
+				yvalue = parseInt(document.getElementById("y").value);
+				
+				switch(a){
+				case "+" :
+					str = xvalue + yvalue;
+					break;
+				case "-" :
+					str = xvalue - yvalue;
+					break;
+				case "*" :
+					str = xvalue * yvalue;
+					break;
+				case "/" :
+					str = xvalue / yvalue;
+					break;
+				case "%" :
+					str = xvalue % yvalue;
+					break;	
+				}
+				//출력
+				document.getElementById("sum").value = str;
+				
+				document.getElementById("sp1").textContent = xvalue;
+				document.getElementById("sp2").textContent = yvalue;
+				document.getElementById("sp3").textContent = str;
+				//document.querySelector("#sp3").innerHTML = str;
+				//document.querySelector("#sp3").textContent = str;
+			}
+			function proc1(){
+				//랜덤값(1~100) 5개 생성
+				str = "";
+				
+				for(i = 0; i < 5; i++){
+					//str += parseInt((Math.random() * 100 + 1)) + " ";
+					str += Math.floor((Math.random() * 100 + 1)) + " ";
+					//rand = Math.random() * 100 + 1;
+					//str += rand.toFixed(0) + " ";
+					
+				}
+				//document.getElementById("result2").textContent += str + "<br>";
+				//textContent에서는 <br>태그가 적용되지 않고, 글자로 인식됨
+				document.getElementById("result2").innerHTML += str + "<br>";
+			}
+		</script>
+	</head>
+	<body>
+		<div class = "box">
+			<h3>함수</h3>
+			<h4>textContent - 'input', 'select option', 'textarea'를 제외한 요소의 값을 get, set</h4>
+			<h4>innerHTML - 'input', 'select option', 'textarea'를 제외한 요소의 값을 get, set</h4>
+			------------------------------------------------------------------------------------------
+			<h4>value - 'input', 'select option', 'textarea' 요소의 값을 get, set</h4>
+			<br>
+			첫번째 : <input type = "text" id = "x"><br>
+			두번째 : <input type = "text" id = "y"><br>
+			결과값 : <input type = "text" id = "sum"><br>
+			<br>
+			<input type = "button" value = "덧셈" onclick = "calc('+')">&nbsp;&nbsp;
+			<input type = "button" value = "뺄셈" onclick = "calc('-')">&nbsp;&nbsp;
+			<input type = "button" value = "곱셈" onclick = "calc('*')">&nbsp;&nbsp;
+			<input type = "button" value = "나눗셈" onclick = "calc('/')">&nbsp;&nbsp;
+			<input type = "button" value = "나머지" onclick = "calc('%')"><br><br>
+			<div id = "result1">
+				<p>첫번째 : <span id = "sp1"></span></p>
+				<p>두번째 : <span id = "sp2"></span></p>
+				<p>결과값 : <span id = "sp3"></span></p>
+			</div>
+		</div>
+		
+		<br><hr><br>
+		
+		<div class = "box">
+			<h3>버튼을 클릭하면 랜덤값(1~100) 5개를 출력</h3>
+			<h4></h4>
+			<br>
+			<input type = "button" value = "확인" onclick = "proc1()"><br><br>
+			<div id = "result2"></div>
+		</div>
+	</body>
+</html>

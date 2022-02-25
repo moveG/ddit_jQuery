@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../css/mystyle.css">
+		<script src="../js/jquery-3.6.0.min.js" type=""></script>
+		<script>
+			$(function(){
+				$('p').on('mouseover', function(){
+					$(this).addClass('fontcolor');
+				})
+				
+				$('p').on('mouseout', function(){
+					$(this).removeClass('fontcolor');
+				})
+				
+				$('p').on('click', function(){
+					$(this).toggleClass('fontsize');
+					
+					if($(this).hasClass('fontsize')){
+						$(this).addClass('border');
+					}else{
+						$(this).removeClass('border');
+					}
+					
+					//$(this).toggleClass('fontsize').toggleClass('border');
+				})
+			})
+		</script>
+		<style>
+			.pp{
+				background : pink;
+				/* 처음부터 적용되는 정적인 요소 */
+			}
+			.fontcolor{
+				color : red;
+			}
+			.fontsize{
+				font-size : 1.5em;
+			}
+			.border{
+				border : 3px solid brown;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<h3>스타일클래스 메서드</h3>
+			<h4>스타일을 동적으로 적용시킴</h4>
+			<br>
+			<div id="result1">
+				<p class="pp">반반무많이 크리스피 치킨</p>
+				<p>치즈듬뿍 시카고 피자</p>
+				<p>김치피자탕수육 김피탕</p>
+			</div>
+		</div>
+		
+		<br><hr><br>
+	</body>
+</html>

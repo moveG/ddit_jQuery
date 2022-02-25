@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../css/mystyle.css">
+		<script src="../js/jquery-3.6.0.min.js" type=""></script>
+		<style>
+			span{
+				border-bottom : 2px solid red;
+				//text-decoration : underline;
+				//text-decoration-color : red;
+			}
+		</style>
+		<script>
+			/*
+			1. window.onload = function(){}
+			2. $(document).ready(function(){})
+			3. $(function(){})
+			*/
+			
+			//3개의 타입 중 하나를 사용하면 됨
+			$(function(){
+				$('.box1 input[type=button]').on('click', function(){
+					//$('#result1 p').css('color', 'red');
+					$('p', '#result1').css('color', 'blue');
+					//컨텍스트(#result1)의 범위에서 p를 검색해라.
+				})
+				
+				$('.box2 input[type=button]').on('click', function(){
+					//$('document.forms[0] p') : 이렇게 사용하면 안됨(document.forms[0]은 따옴표 안에 들어가면 안되므로)
+					//$('p', document.forms[0]).css('color', 'red');	//box1의 form내부의 p가 바뀜
+					$('p', document.forms[1]).css('color', 'red').css('font-size', '2.0em');	//box2의 form내부의 p가 바뀜
+				})
+				
+				//$('.box div').on('click', function(){
+				$('div', '.box').on('click', function(){
+					//클릭한 div를 this로 받음
+					//클릭한 div내부의 p를 바꿈
+					$('p', this).css('background', 'lime');
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<div class="box box1">
+			<p>box1 안쪽의 p태그 Hello</p>
+			<h3></h3>
+			<h4>$('#result1 p').css('color', 'red');</h4>
+			<h4>$('p', '#result1').css('color', 'blue');</h4>
+			<br>
+			<h4><span>$('div', '.box').on('click'</span>, function(){</h4>
+			<h4>//클릭한 div를 this로 받음</h4>
+			<h4>//클릭한 div내부의 p를 바꿈</h4>
+			<h4>$('p', <span>this</span>).css('background', 'lime');</h4>
+			<h4>})</h4>
+			<br>
+			<input type="button" value="확인"><br><br>
+			<div id="result1">
+				<p>무궁화 꽃이 피었습니다.1</p>
+				<p>무궁화 꽃이 피었습니다.2</p>
+				<p>무궁화 꽃이 피었습니다.3</p>
+				<p>무궁화 꽃이 피었습니다.4</p>
+				<p>무궁화 꽃이 피었습니다.5</p>
+			</div>
+			
+			<form>
+				<p>복숭아</p>
+				<p>사과</p>
+				<p>딸기</p>
+				<p>오렌지</p>
+			</form>
+		</div>
+		
+		<br><hr><br>
+		
+		<div class="box box2">
+			<p>box2 안쪽의 p태그 Hello</p>
+			<h3></h3>
+			<h4>$('p', document.forms[1]).css('color', 'red').css('font-size', '2.0em');</h4>
+			<br>
+			<input type="button" value="확인"><br><br>
+			<div id="result2">
+				<p>무궁화 꽃이 피었습니다.1</p>
+				<p>무궁화 꽃이 피었습니다.2</p>
+				<p>무궁화 꽃이 피었습니다.3</p>
+				<p>무궁화 꽃이 피었습니다.4</p>
+				<p>무궁화 꽃이 피었습니다.5</p>
+			</div>
+			
+			<form>
+				<p>복숭아</p>
+				<p>사과</p>
+				<p>딸기</p>
+				<p>오렌지</p>
+			</form>
+		</div>
+		
+		<br><hr><br>
+	</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../css/mystyle.css">
+		<script src="../js/jquery-3.6.0.min.js" type=""></script>
+		<style>
+			input[value=보이기]{
+				display : none;
+			}
+		</style>
+		<script>
+			/* window.onload = function(){
+				$('#result1').html("<h1>hello</h1>");
+				
+			} */
+			
+			$(document).ready(function(){
+				//box1
+				$('.box1 input[type=button]').on('click', function(){
+					$('#result1').html("<h1>hello</h1>");
+				})
+				
+				//box2
+				$('.box2 input[type=button]').on('click', function(){
+					//result2의 배경색을 변경(yellow)
+					$('#result2').css('background', 'yellow');
+					
+					//h1요소의 글자색을 변경(blue)
+					$('#result2 h1').css('color', 'blue');
+					
+					//id가 para인 요소의 글자색을 변경(green)
+					$('#para').css('color', 'green');
+					
+					//class가 sample인 요소의 글자색을 변경(red)
+					$('.sample').css('color', 'red');
+				})
+			})
+			
+			//box3
+			function proc3(th){
+				//th매개변수는 클릭한 h2요소를 받는다.
+				//th매개변수는 DOM객체이다.
+				//$(th)는 jQuery객체이다.
+				//text()는 jQuery메서드이다.
+				//alert("proc3() : " + $(th).text());
+				alert(`proc3() : ${$(th).text()}`);
+			}
+			
+			//box4
+			$(document).ready(function(){
+				//result4의 h2요소에 대한 이벤트 일괄등록
+				vhh4=document.getElementsByClassName('hh4');
+				
+				for(i=0; i<vhh4.length; i++){
+					vhh4[i].addEventListener('click', proc4);
+				}
+			})
+			
+			//box4
+			function proc4(){
+				//this 사용 가능 : this는 클릭한 h2객체
+				//$(this).hide();
+				$(this).css('display', 'none');
+				
+				//if("보이는 h2객체가 없는가?"){버튼 나타내기}
+				//h2:visible은 붙여써야 한다.
+				if($('#result4 h2:visible').length<1){
+					$('#result4 input[type=button]').show();
+				}
+			}
+			
+			//box4
+			$(document).ready(function(){
+				//버튼을 클릭하면 이벤트
+				$('#result4 input[type=button]').on('click', function(){
+					//h2객체가 모두 나타난다.
+					$('#result4 h2').show();
+					
+					//버튼은 다시 사라진다.
+					//$('#result4 input[type=button]').hide();
+					$(this).hide();
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<div class="box box1">
+			<h3>jQuery</h3>
+			<h4>- 확인버튼 클릭시 'Hello' 출력</h4>
+			<h4>- $('#result1').html("&lt;h1>hello&lt;/h1>");</h4>
+			<br>
+			<input type="button" value="확인"><br><br>
+			<div id="result1"></div>
+		</div>
+		
+		<br><hr><br>
+		
+		<div class="box box2">
+			<h3>jQuery</h3>
+			<h4>- 컬러 변경</h4>
+			<br>
+			<input type="button" value="확인"><br><br>
+			<div id="result2">
+				<h1>제목입니다</h1>
+				<h2 id="para">작은 제목입니다</h2>
+				<h2 class="sample">샘플입니다</h2>
+			</div>
+		</div>
+		
+		<br><hr><br>
+		
+		<div class="box box3">
+			<h3>jQuery</h3>
+			<h4>- 각 h2요소에 onclick을 적용하여 proc3(this)를 호출한다.</h4>
+			<h4>- 호출시 매개변수에 this를 전달한다.</h4>
+			<h4>- this는 클릭한 h2요소를 나타낸다.</h4>
+			<br>
+			<div id="result3">
+				<h2 onclick="proc3(this)">클릭하면 사라집니다1.</h2>
+				<h2 onclick="proc3(this)">클릭하면 사라집니다2.</h2>
+				<h2 onclick="proc3(this)">클릭하면 사라집니다3.</h2>
+				<h2 onclick="proc3(this)">클릭하면 사라집니다4.</h2>
+				<h2 onclick="proc3(this)">클릭하면 사라집니다5.</h2>
+				<h2 onclick="proc3(this)">클릭하면 사라집니다6.</h2>
+				<h2 onclick="proc3(this)">클릭하면 사라집니다7.</h2>
+				<h2 onclick="proc3(this)">클릭하면 사라집니다8.</h2>
+				<h2 onclick="proc3(this)">클릭하면 사라집니다9.</h2>
+				<h2 onclick="proc3(this)">클릭하면 사라집니다10.</h2>
+			</div>
+		</div>
+		
+		<br><hr><br>
+		
+		<div class="box box4">
+			<h3>이벤트 일괄등록</h3>
+			<h4>vhh4=document.getElementsByClassName('hh4');</h4>
+			<h4>for(i=0; i&lt;vhh4.length; i++){</h4>
+			<h4>vhh4[i].addEventListener('click', proc4);</h4>
+			<h4>}</h4>
+			<br>
+			<h4>- 각 h2요소를 클릭하면 사라집니다.</h4>
+			<br>
+			<div id="result4">
+				<h2 class="hh4">클릭하면 사라집니다1.</h2>
+				<h2 class="hh4">클릭하면 사라집니다2.</h2>
+				<h2 class="hh4">클릭하면 사라집니다3.</h2>
+				<h2 class="hh4">클릭하면 사라집니다4.</h2>
+				<h2 class="hh4">클릭하면 사라집니다5.</h2>
+				<h2 class="hh4">클릭하면 사라집니다6.</h2>
+				<h2 class="hh4">클릭하면 사라집니다7.</h2>
+				<h2 class="hh4">클릭하면 사라집니다8.</h2>
+				<h2 class="hh4">클릭하면 사라집니다9.</h2>
+				<h2 class="hh4">클릭하면 사라집니다10.</h2>
+				<input type="button" value="보이기">
+			</div>
+		</div>
+		
+		<br><hr><br>
+	</body>
+</html>

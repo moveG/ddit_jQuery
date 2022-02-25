@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../css/mystyle.css">
+		<script src="../js/jquery-3.6.0.min.js" type=""></script>
+		<style>
+			#result1 div{
+				width : 300px;
+				height : 30px; 
+				border : 1px solid black;
+			}
+			.box1 input[type=button]{
+				width : 150px;
+			}
+		</style>
+		<script>
+			$(function(){
+				$('#btn1').on('click', function(){
+					//'jQuery' 글자가 포함된 span태그의 테두리색 blue
+					$('#result1 span:contains(jQuery)').css('border', '3px solid blue');
+				})
+					 
+				$('#btn2').on('click', function(){
+					//'jQuery' 글자가 포함되지 않은 span 태그의 테두리색 red
+					$('#result1 span:not(:contains(jQuery))').css('border', '3px solid red');
+				})
+				
+				$('#btn3').on('click', function(){
+					//span을 갖는 div요소 태그의 테두리색 green
+					$('#result1 div:has(span)').css('border', '3px solid green');
+				})
+				
+				$('#btn4').on('click', function(){
+					//아무것도 없는 빈 div 태그의 테두리색 gold
+					$('#result1 div:empty').css('border', '3px solid gold');
+				})
+				
+				$('#btn5').on('click', function(){
+					//div 후손 span 태그의 글자색 orange, 사이즈 1.3em, Bold
+					$('#result1 div span').css('color', 'orange').css('font-size', '1.3em').css('font-weight', 'bold');
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<div class="box box1">
+			<h3>내용필터</h3>
+			<h4>'jQuery' 글자가 포함된 span태그의 테두리색 blue</h4>
+			<h4>'jQuery' 글자가 포함되지 않은 span 태그의 테두리색 red</h4>
+			<h4>span을 갖는 div요소 태그의 테두리색 green</h4>
+			<h4>아무것도 없는 빈 div 태그의 테두리색 gold</h4>
+			<h4>div 후손 span 태그의 글자색 orange, 사이즈 1.3em, Bold</h4>
+			<br>
+			<input id="btn1" type="button" value="span_jQuery">&nbsp;&nbsp;
+			<input id="btn2" type="button" value="span_not_jQuery">&nbsp;&nbsp;
+			<input id="btn3" type="button" value="div_has_span">&nbsp;&nbsp;
+			<input id="btn4" type="button" value="div_empty">&nbsp;&nbsp;
+			<input id="btn5" type="button" value="div span"><br><br>
+			<div id="result1">
+				<div></div>
+				<br>
+				
+				<div>헬로우~~
+				<span>오늘도 즐겁게~열심히!</span>
+				</div>
+				<br>
+				
+				<p>Hello jQuery! <span>Thanks, jQuery!</span></p>
+				<br>
+				
+				<div class="myClass">jQuery!</div>
+				<br>
+				
+				<span class="notMyClass">쉬운 jQuery~~!</span>
+				<br><br>
+				
+				<div></div>
+				<br>
+			</div>
+		</div>
+		
+		<br><hr><br>
+	</body>
+</html>

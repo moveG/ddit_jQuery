@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "UTF-8">
+		<title></title>
+		<link rel = "stylesheet" href = "../css/mystyle.css">
+			<script>
+			//setTimeout(fn, millisec)
+			proc1 = () => {
+				setTimeout(function(){
+					document.querySelector('#result1').style.background = "orange";
+				}, 500);
+			}
+			
+			//setInterval(fn, millisec)
+			proc2 = (btn) => {
+				//시작버튼 - 사라짐
+				btn.style.display = "none";
+				
+				gbtn = btn;
+				//지역변수 btn을 전역변수 gbtn에 넣어 다른 곳에서도 사용할 수 있도록 변환함
+				
+				a = setInterval(function(){
+					console.log(a);
+					
+					//rgb
+					cr = Math.floor(Math.random() * 256);
+					cg = Math.floor(Math.random() * 256);
+					cb = Math.floor(Math.random() * 256);
+					
+					//document.querySelector('#result2').style.background = `rgb(${cr}, ${cg}, ${cb})`;
+
+					//16진수로 변경
+					cr = cr.toString(16);
+					cg = cg.toString(16);
+					cb = cb.toString(16);
+					
+					document.querySelector('#result2').style.background = "#" + cr + cg + cb;
+				}, 50);
+			}
+			
+			//clearInterval()
+			proc3 = () => {
+				//종료버튼
+				clearInterval(a);
+				
+				//시작버튼 - 나타남
+				gbtn.style.display = "inline";
+			}
+		</script>
+	</head>
+	<body>
+		
+		<div class = "box">
+			<h3>setTimeout(fn, millisec)</h3>
+			<h4>millisec의 시간이 경과하면 fn(펑션)을 수행한다.</h4>
+			<br>
+			<input type = "button" value = "확인" onclick = "proc1()"><br><br>
+			<div id = "result1"></div>
+		</div>
+		
+		<br><hr><br>
+		
+		<div class = "box">
+			<h3>setInterval(fn, millisec)</h3>
+			<h4>millisec의 시간이 경과할 때마다 반복적으로 fn(펑션)을 수행한다.</h4>
+			<br>
+			<input type = "button" value = "시작" onclick = "proc2(this)">&nbsp;&nbsp;&nbsp;&nbsp;
+			<!-- this는 자기자신을 뜻함 -->
+			<input type = "button" value = "종료" onclick = "proc3()"><br><br>
+			<div id = "result2"></div>
+		</div>
+		
+		<br><hr><br>
+	</body>
+</html>

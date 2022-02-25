@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "UTF-8">
+		<title>Window open</title>
+		<link rel = "stylesheet" href = "../css/mystyle.css">
+		<script>
+			//window.open()
+			proc1 = () => {
+				a = window.open("../0909/Random객체.html", "korea", "width=500, height=400");
+				
+				a.moveTo(200, 200);
+				//새로운 창이 200(x좌표), 200(y좌표) 이동한 위치에서 실행됨
+				//moveTo(x, y) : 절대적인 위치 x와 y로 이동
+				//moveBy(x, y) : 상대적인 위치로 x와 y값 만큼 이동
+			}
+			
+			//moveBy()
+			proc2 = () => {
+				a.moveBy(100, 100);//상대좌표(현재위치에서 이동)
+			}
+			
+			//moveTo()
+			proc3 = () => {
+				a.moveTo(100, 100);//절대좌표(위치가 고정)
+			}
+			
+			//resizeBy()
+			proc4 = () => {
+				a.resizeBy(200, 200);//상대크기(현재크기에서 증가)
+			}
+			
+			//resizeTo()
+			proc5 = () => {
+				a.resizeTo(300, 300);//절대크기(크기가 고정)
+			}
+			
+			//scrollBy()
+			proc6 = () => {
+				a.scrollBy(150, 150);//상대위치(스크롤 계속 이동)
+			}
+			
+			//scrollTo()
+			proc7 = () => {
+				a.scrollTo(300, 300);//절대위치(스크롤 좌표 위치에 고정)
+			}
+			
+			//opener()
+			proc8 = () => {
+				window.open("winsub.html", "width=500, height=400");
+				//window는 생략 가능함
+			}
+		</script>
+	</head>
+	<body>
+		<div class = "box">
+			<h3>Window객체</h3>
+			<h4>open("실행할 window", "name/target", "specs")</h4>
+			<h4> - target : _blank, _self</h4>
+			<h4> - name : 논리적으로 표현되는 이름, 물리적 표현이 아니므로 표시되지 않는다.</h4>
+			<h4> - specs : 여러가지의 속성을 설정할 수 있음(width, height, top, left 등)</h4>
+			<h4>close()</h4>
+			<br>
+			<input type = "button" value = "open" onclick = "proc1()">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type = "button" value = "moveBy" onclick = "proc2()">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type = "button" value = "moveTo" onclick = "proc3()">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type = "button" value = "resizeBy" onclick = "proc4()">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type = "button" value = "resizeTo" onclick = "proc5()">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type = "button" value = "scrollBy" onclick = "proc6()">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type = "button" value = "scrollTo" onclick = "proc7()"><br><br>
+			<div id = "result1"></div>
+		</div>
+		
+		<br><hr><br>
+		
+		<div class = "box">
+			<h3>Window객체</h3>
+			<h4>open("실행할 window", "name/target", "specs")</h4>
+			<h4>opener : 자식창(새 창)에서 부모창(원래 창)으로 접근하고자 할 때 부모창을 나타내는 속성</h4>
+			<br>
+			<input type = "button" value = "open" onclick = "proc8()"><br><br>
+			<div id = "result8"></div>
+		</div>
+		
+		<br><hr><br>
+	</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+		
+		<!-- <link rel="stylesheet" href="../css/mystyle.css"> --><!-- 상대경로 -->
+		<link rel="stylesheet" href="http://localhost/jqpro/css/mystyle.css"><!-- 절대경로 -->
+		<script>
+			$(function(){
+				$('#dongbtn').on('click', function(){
+					dongvalue = $('#dong').val().trim();
+					
+					if(dongvalue.length < 1){
+						alert("동을 입력하세요.");
+						return false;
+					}
+					
+					//$.post(url, data, success, dataType)
+					
+					$.ajax({
+						url : '/jqpro/SearchDong.do',
+						type : 'post',
+						data : {"dong" : dongvalue},
+						success : function(res){
+							code = "";
+							$.each(res, function(i, v){
+								code += "<p>";
+								code += "<span class='s1'>" + v.zip + "</span> ";
+								code += "<span class='s2'>" + v.addr + "</span> ";
+								code += "<span class='s3'>" + v.bunji + "</span>";
+								code += "</p>";
+							})
+							
+							$('#result1').html(code);
+						},
+						error : function(xhr){
+							alert("상태 : " + xhr.status);
+						},
+						dataType : 'json'
+					})
+				})
+				
+				//$(document).on('click', '#result1 p', function(){
+				$('#result1').on('click', 'p', function(){
+					zip = $('.s1', this).text();
+					add1 = $('.s2', this).text();
+										
+					$('#zip', opener.document).val(zip);
+					$('#add1', opener.document).val(add1);
+					
+					window.close();
+				})
+			})
+		</script>
+		<style>
+			#result1 p:hover{
+				background : orange;
+				color : white;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<h3>우편번호 찾기</h3>
+			<h4>찾는 동 이름을 입력하세요.</h4>
+			<input type="text" id="dong">
+			<br><br>
+			<input type="button" id="dongbtn" value="찾기"><br><br>
+			<div id="result1"></div>
+		</div>
+	</body>
+</html>

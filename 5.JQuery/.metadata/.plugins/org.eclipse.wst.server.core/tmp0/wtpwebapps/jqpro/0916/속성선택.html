@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../css/mystyle.css">
+		<script src="../js/jquery-3.6.0.min.js" type=""></script>
+		<style>
+			.box input[type = submit], .box button[type = button], .box button[type = submit], .box button[type = reset]{
+				border-radius : 0%;
+				border : none;
+				height : 30px;
+				width : 100px;
+				background : orange;
+				color : white;
+				font-weight : bold;
+				text-align : center;
+			}
+			label{
+				display : inline-block;
+				width : 90px;
+				height : 30px;
+			}
+			
+			.box2 input[type=button], .box button[type = submit]{
+				width : 150px;
+			}
+		</style>
+		<script>
+			$(function(){
+				$('.box1 > input[type=button]').on('click', function(){
+					//title 속성을 가진 p요소의 배경색 변경
+					$('p[title]').css('background', 'lightgreen');
+					
+					//type 속성이 password 인 요소의 테두리 변경
+					$('.box1 input[type=password]').css('border', '2px solid red');
+				})
+				
+				$('.btn').on('click', function(){
+					//alert($(this).val());
+				})	
+						
+				//type이 button인 input요소의 배경색 변경 
+				$('#btn0').on('click', function(){
+					$('input[type=button]').css('background', 'blue');
+				})
+				
+				//href가 mailto로 시작하는 a요소의 배경색 변경  
+				$('#btn1').on('click', function(){
+					$('a[href^=mailto]').css('background', 'yellow');
+				})	
+					
+				//id가 img1인것만 제외한 img요소의 테두리 변경 
+				$('#btn2').on('click', function(){
+					$('img[id!=img1]').css('border', '2px solid red');
+				})	
+				
+				//src가 png로 끝나는 img요소의 테두리 변경 
+				$('#btn3').on('click', function(){
+					$('img[src$=png]').css('border', '3px solid blue');
+				})
+				
+				//type이 text인 input요소의 테두리 변경
+				$('#btn4').on('click', function(){
+					$('input[type=text]').css('border', '4px solid yellow');
+				})
+				
+				//title 이 named단어(공백구분)를 포함한 img요소의 테두리 변경
+				$('#btn5').on('click', function(){
+					$('[title~=named]').css('border', '10px dotted green');
+				})
+				
+				//href가 power2c를 포함하는 모든 a요소의 밑줄 없음  
+				$('#btn6').on('click', function(){
+					$('a[href*=power2c]').css('text-decoration', 'none');
+				})
+			
+				//id가 little이거나 little로 시작하는  img요소의 테두리  
+				$('#btn7').on('click', function(){
+					$('img[id|=little]').css('border', '7px dotted black');
+				})
+				
+				//alt속성을 갖는 img요소의 테두리-2px solid red 
+				$('#btn8').on('click', function(){
+					$('img[alt]').css('border', '2px solid red');
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<div class="box box1">
+			<h3>속성 선택</h3>
+			<br>
+			<input type="button" value="확인"><br><br><!-- box의 자식 -->
+			<div id="result1">
+				<p> 일반 문단입니다. </p>
+				<p title="툴팁으로 보입니다"> 타이틀을 가지고 있는 문단입니다. </p>
+				회원번호 <input type="text"><br>
+				비밀번호 <input type="password">
+				&nbsp;&nbsp;<input type="button" value="확인"><!-- box의 후손, result1의 자식 -->
+			</div>
+		</div>
+		
+		<br><hr><br>
+		
+		<div class="box box2">
+			<h3>속성 선택</h3>
+			<h4></h4>
+			<br>
+			<!-- <input class="btn" id="btn1" type="button" value="button배경색"> -->
+			<input class="btn" id="btn0" type="button" value="input[type=button]">
+			<input class="btn" id="btn1" type="button" value="a[href^=mailto]">
+			<input class="btn" id="btn2" type="button" value="img[id!=img1]">
+			<input class="btn" id="btn3" type="button" value="img[src$=png]">
+			<input class="btn" id="btn4" type="button" value="input[type=text]">
+			<input class="btn" id="btn5" type="button" value="[title~=named]">
+			<input class="btn" id="btn6" type="button" value="a[href*=power2c]">
+			<input class="btn" id="btn7" type="button" value="img[id|=little]">
+			<input class="btn" id="btn8" type="button" value="img[alt]">
+			<br><br>
+			<div id="result2">
+				<a href="http://www.ddit.or.kr">(재)대덕 인재 개발원</a><br><br>
+				<a href="mailto:power2c@ddit.or.kr">빠워에게 메일보내기</a><br><br>
+				
+				<div><label>Some images:</label></div>
+				<br>
+				<div>
+					<img src="../images/image.1.jpg" id="img1" alt="Hibiscus">
+					<img src="../images/image.2.jpg" id="little-Bear" title="A dog named little Bear">
+					<img src="../images/image.3.jpg" id="verbena" alt="Verbena">
+					<img src="../images/image.4.jpg" id="cozmo" title="A puppy named Cozmo">
+					<img src="../images/image.5.jpg" id="tigerLily" alt="Tiger Lily">
+					<img src="../images/image.6.jpg" id="little" title="coffeePot">
+					<img src="../images/산.png">
+				</div>
+				<br>
+				<div id="someDiv">이곳은 ID속성이 <tt>someDiv</tt>인 &lt;div&gt;태그 입니다.</div>
+				<br>
+				<form>
+					<div>
+						<label>Text:</label> <input type="text" id="aTextField" name="someTextField"/>
+					</div>
+					<br>
+					<button type="submit" id="submitButton">Submit</button>&nbsp;&nbsp;&nbsp;&nbsp;
+					<br><br>
+					<input type="button" value="클릭~~">
+				</form>
+			</div>
+		</div>
+		
+		<br><hr><br>
+	</body>
+</html>

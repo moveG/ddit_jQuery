@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../css/mystyle.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script>
+			$(function(){
+				$('#next').on('click', function(){
+					$('#result1 .start').next().css({'color' : 'red', 'border' : '2px solid red'})
+				})
+				$('#nexta').on('click', function(){
+					$('#result1 .start').nextAll().css({'color' : 'blue', 'border' : '2px solid blue'})
+				})
+				$('#nextu').on('click', function(){
+					$('#result1 .start').nextUntil('#result1 .stop').css({'color' : 'green', 'border' : '2px solid green'})
+				})
+				
+				
+				$('#prev').on('click', function(){
+					$('#result2 .stop').prev().css({'color' : 'red', 'border' : '2px solid red'})
+				})
+				$('#preva').on('click', function(){
+					$('#result2 .stop').prevAll().css({'color' : 'blue', 'border' : '2px solid blue'})
+				})
+				$('#prevu').on('click', function(){
+					//$('#result2 .stop').prevUntil('#result2 li:eq(2)').css({'color' : 'green', 'border' : '2px solid green'})
+					//$('#result2 .stop').prevUntil('#result2 li:first').css({'color' : 'green', 'border' : '2px solid green'})
+					$('#result2 .stop').prevUntil('#result2 .start').css({'color' : 'green', 'border' : '2px solid green'})
+				})
+				
+				
+				$('#parent').on('click', function(){
+					$('#result3 span').parent().css({'color' : 'red', 'border' : '2px solid red'});
+				})
+				$('#parents').on('click',function(){
+					$('#result3 span').parents().css({'color' : 'blue', 'border' : '2px solid blue'});
+				})
+				$('#parentsel').on('click',function(){
+					$('#result3 span').parents('#result3 ul').css({'color' : 'green', 'border' : '2px solid green'});
+				})
+				$('#parentunt').on('click',function(){
+					$('#result3 span').parentsUntil('#result3').css({'color' : 'magenta', 'border' : '2px solid magenta'});
+				})
+				
+				
+				/* $('.find').on('click', function(){
+					$('#result4').find('span').css({'color' : 'purple', 'border' : '2px dotted purple'});
+				}) */
+				$('.find').on('click', function(){
+					$(this).parent().find('span').css({'color' : 'red', 'border' : '2px solid red'});
+				})
+			})
+		</script>
+		<style>
+			.siblings * { 
+				display: block;
+				border: 2px solid darkgrey;
+				color: darkgrey;
+				padding: 5px;
+				margin: 15px;
+			}
+			.start, .stop{
+				color : black;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<h3></h3>
+			<h4></h4>
+			<br>
+			<input id="next" type="button" value="next">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input id="nexta" type="button" value="nextAll">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input id="nextu" type="button" value="nextUntil"><br><br>
+			<div id="result1">
+				<div style="width:500px;" class="siblings">
+					<ul>ul (parent)  
+						<li>li (sibling)</li>
+						<li>li (sibling)</li>
+						<li class="start">li (sibling with class name "start")</li>
+						<li>li (the next sibling of li with class name "start")</li>
+						<li>li (the next sibling of li with class name "start")</li>
+						<li>li (the next sibling of li with class name "start")</li>
+						<li class="stop">li (sibling with class name "stop")</li>
+					</ul>   
+				</div>
+			</div>
+		</div>
+		
+		<br><hr><br>
+		
+		<div class="box">
+			<h3></h3>
+			<h4></h4>
+			<br>
+			<input id="prev" type="button" value="prev">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input id="preva" type="button" value="prevAll">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input id="prevu" type="button" value="prevUntil"><br><br>
+			<div id="result2">
+				<div style="width:500px;" class="siblings">
+					<ul>ul (parent)  
+						<li>li (prev sibling)</li>
+						<li>li (prev sibling)</li>
+						<li class="start">li (sibling with class name "start")</li>
+						<li>li (the prev sibling of li with class name "stop")</li>
+						<li>li (the prev sibling of li with class name "stop")</li>
+						<li>li (the prev sibling of li with class name "stop")</li>
+						<li class="stop">li (sibling with class name "stop")</li>
+					</ul>   
+				</div>
+			</div>
+		</div>
+		
+		<br><hr><br>
+		
+		<div class="box">
+			<h3></h3>
+			<h4></h4>
+			<br>
+			<input id="parent" type="button" value="parent">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input id="parents" type="button" value="parents">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input id="parentsel" type="button" value="parent_sel">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input id="parentunt" type="button" value="parent_unt"><br><br>
+			<div id="result3">
+				<div class="siblings">div (great-great-grandparent)
+					<div style="width:500px;">div (great-grandparent)
+						<ul>ul (grandparent)  
+							<li>li (direct parent)
+								<span>span</span>
+							</li>
+						</ul>   
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<br><hr><br>
+		
+		<div class="box">
+			<h3></h3>
+			<h4></h4>
+			<br>
+			<div id="result4">
+				<input type="button" class="find" value="find"><br><br>
+				<div class="siblings">div (great-great-grandparent)
+					<div style="width:500px;">div (great-grandparent)
+						<ul>ul (grandparent)  
+							<li>li (direct parent)
+								<span>span</span>
+							</li>
+						</ul>   
+					</div>
+				</div>
+			</div>
+			
+			<br><br>
+			
+			<div id="result5">
+				<input  type="button" class="find" value="find"><br><br>
+				<div class="siblings">div (great-great-grandparent)
+					<div style="width:500px;">div (great-grandparent)
+						<ul>ul (grandparent)  
+							<li>li (direct parent)
+								<span>span</span>
+							</li>
+						</ul>   
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

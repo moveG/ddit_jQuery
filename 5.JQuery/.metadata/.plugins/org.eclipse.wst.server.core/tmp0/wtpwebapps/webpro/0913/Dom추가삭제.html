@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "UTF-8">
+		<title></title>
+		<link rel = "stylesheet" href = "../css/mystyle.css">
+		<script>
+			arr = ["안녕하세요", "헬로우", "니하오", "곤니찌와", "봉주르", "싸와디캅"];
+			
+			//추가
+			proc1 = () => {
+				//랜덤발생(0~5)
+				rnd = Math.floor(Math.random() * arr.length);
+				
+				//배열문자를 선택 (arr[랜덤]) - textNode 생성
+				text = document.createTextNode(arr[rnd]);	//자식요소
+				
+				//p태그를 생성 - createElement('p')		//text의 부모요소, result1의 자식요소 
+				ptag = document.createElement('p');
+								
+				//p태그에 text를 추가 - appendChild
+				ptag.appendChild(text);
+				
+				//result1요소에 접근, 검색	//부모요소
+				result = document.getElementById('result1');
+				
+				//result1에 text를 자식요소로 추가
+				result.appendChild(ptag);
+			}
+			
+			//삭제
+			proc2 = () => {
+				result = document.getElementById('result1');
+				
+				//child = result.lastChild;	//뒤에서부터 삭제
+				child = result.firstChild;	//앞에서부터 삭제
+				
+				result.removeChild(child);
+			}
+			
+			//추가, 삭제
+			function proc3(){
+				//랜덤
+				rnd = Math.floor(Math.random() * arr.length);
+				
+				//배열문자를 선택 (arr[랜덤]) - textNode 생성
+				text = document.createTextNode(arr[rnd]); 
+					
+				//버튼생성 - createElement('input')
+				input = document.createElement('input');
+					
+				//input버튼의 속성
+				input.type = "button";
+				input.value = "삭제";
+				input.onclick = function(){
+					this.parentNode.remove();
+				}
+				
+				//p태그를 생성 - createElement('p')		//text의 부모요소, result1의 자식요소 
+				ptag = document.createElement('p');
+				
+				//p태그에 text와 input을 추가 - appendChild
+				ptag.appendChild(text);
+				ptag.appendChild(input);
+				
+				result = document.getElementById('result3');
+
+				//result3에 p태그를 자식요소로 추가
+				result.appendChild(ptag);
+			}
+		</script>
+	</head>
+	<body>
+		<div class = "box">
+			<h3>Dom 추가 / 삭제</h3>
+			<h4>새로운 text 생성과 삭제</h4>
+			<h4>- createElement('p')</h4>
+			<h4>- createTextNode()</h4>
+			<h4>- appendChild()</h4>
+			<br>
+			<input type = "button" value = "추가" onclick = "proc1()"><br><br>
+			<h4>- lastChild</h4>
+			<h4>- removeChild(child)</h4>
+			<br>
+			<input type = "button" value = "삭제" onclick = "proc2()"><br><br>
+			<div id = "result1"></div>
+		</div>
+		
+		<br><hr><br>
+		
+		<div class = "box">
+			<h3>Dom 추가 / 삭제</h3>
+			<h4>새로운 text 생성과 삭제</h4>
+			<h4>- parentNode</h4>
+			<h4>- remove()</h4>
+			<br>
+			<input type = "button" value = "추가 " onclick = "proc3()"><br><br>
+			<div id = "result3"></div>
+		</div>
+		
+		<br><hr><br>
+	</body>
+</html>

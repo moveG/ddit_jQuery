@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../css/mystyle.css">
+		<script src="../js/jquery-3.6.0.min.js"></script>
+		<script>
+			$(function(){
+				//현재 상태값 가져오기
+				chk = $('#checkTest').prop('checked');
+				sel = $('#selTest option').eq(0).prop('selected');	//필터관련 메서드(.ep(0))
+				//$('#selTest option:eq(0)').prop('selected');	//기본필터(:eq(0))
+				txt = $('#txtTest').prop('readonly');
+				btn = $('#runBtn').prop('disabled');
+				
+				console.log(chk, sel, txt, btn);
+				
+				$('input[value=확인]').on('click', function(){
+					chk = $('#checkTest').prop('checked');
+					sel = $('#selTest option').eq(2).prop('selected');
+					//2번 인덱스가 selected되어 있는지 확인해서 selected이면 true, selected가 아니면 false를 반환
+					txt = $('#txtTest').prop('readonly');
+					btn = $('#runBtn').prop('disabled');
+					
+					//각 요소의 상태값을 반대로 설정
+					/* if(chk == true){
+					$('#checkTest').prop('checked', false);
+					}else{
+					$('#checkTest').prop('checked', true);
+					} */
+					
+					$('#checkTest').prop('checked', !chk);
+					$('#selTest option').eq(2).prop('selected', !sel);
+					//2번 인덱스가 true에서 false로 바뀌면 selected는 디폴트값인 0로 설정되므로 인덱스값 0과 2를 반복함
+					$('#txtTest').prop('readonly', !txt);
+					$('#runBtn').prop('disabled', !btn);
+				})
+				
+				//$('#all').on('click', function(){
+				$('#all').on('change', function(){
+					//id=all의 checked 상태값을 가져오기
+					all = $('#all').prop('checked');
+					
+					//class=chk의 값을 1번 값으로 모두 변경
+					$('#result2 .chk').prop('checked', all);
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<div class="box">
+			<h3>상태값 얻기/변경</h3>
+			<h4>상태 : checked, selected, readonly, disabled, multiple</h4>
+			<h4>prop(속성명) : 현재 상태의 값을 가져옴 - true/false를 리턴함</h4>
+			<h4>prop(속성명, 값) : 현재 상태를 변경함 - 값에 true/false를 지정함</h4>
+			<br>
+			<input type="button" value="확인"><br><br>
+			<div id="result1">
+				<form>
+					체크박스(라디오버튼) :
+					<input type="checkbox" id="checkTest" checked><br><br>
+					리스트박스(select객체) : 
+					<select id="selTest">
+						<option value="1">하나</option>
+						<option value="2">둘</option>
+						<option value="3" selected>셋</option>
+						<option value="4">넷</option>
+					</select><br><br>
+					text객체 (readonly) :
+					<input type="text" value="가나다" id="txtTest"><br><br>
+					button객체(disabled) : 
+					<input type="button" value="실행" id="runBtn" disabled onclick="alert('hello!!')">
+				</form>
+			</div>
+		</div>
+		
+		<br><hr><br>
+		
+		<div class="box">
+			<h3>상태값 얻기/변경</h3>
+			<h4>상태 : checked, selected, readonly, disabled, multiple</h4>
+			<h4>prop(속성명) : 현재 상태의 값을 가져옴 - true/false를 리턴함</h4>
+			<h4>prop(속성명, 값) : 현재 상태를 변경함 - 값에 true/false를 지정함</h4>
+			<br>
+			<div id="result2">
+				<input type="checkbox" id="all">전체선택&nbsp;
+				<input type="checkbox" class="chk">1&nbsp;
+				<input type="checkbox" class="chk">2&nbsp;
+				<input type="checkbox" class="chk">3&nbsp;
+				<input type="checkbox" class="chk">4&nbsp;
+				<input type="checkbox" class="chk">5<br>
+			</div>
+		</div>
+		
+		<br><hr><br>
+	</body>
+</html>

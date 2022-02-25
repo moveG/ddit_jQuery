@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "UTF-8">
+		<title></title>
+		<style>
+			div{
+				width : 50%;
+				height : auto;
+				padding : 50px;
+				border : 1px solid blue;
+				font-size : 2.0em;
+				color : red;
+			}
+		</style>
+		<script>
+		//변수앞에 var를 붙이면 지역변수, 붙이지 않으면 전역변수
+		//전역변수를 하면 위에서 먼저 사용해서 vdiv변수가 생성되어야 아래의 vdiv도 사용할 수 있다.
+			window.onload = function() {
+			//div요소에 접근	
+			vdiv = document.getElementsByTagName('div')[0];
+			//vdiv 앞에 var를 붙이면 지역변수가 되어서 다른 곳에서는 사용할 수가 없다.
+			
+			//cr = parseInt(Math.random() * 256);
+			//cg = parseInt(Math.random() * 256);
+			//cb = parseInt(Math.random() * 256);
+			//여기에 주면 한번만 색이 바뀌고 끝
+			}
+			function changeBorder(){
+				arr = ["solid", "double", "dotted", "dashed", "inset", "outset"];
+				
+				cr = parseInt(Math.random() * 256);
+				cg = parseInt(Math.random() * 256);
+				cb = parseInt(Math.random() * 256);
+				
+				cr = cr.toString(16);
+				cg = cg.toString(16);
+				cb = cb.toString(16);
+				//16진수로 변경
+				
+				color= "#" + cr + cg + cb;
+				width = parseInt(Math.random() * 10 + 1);
+				index = parseInt(Math.random() * arr.length);
+				style = arr[index];
+				//color = "rgb(" + cr + "," + cg + "," + cb + ")";
+				
+				//vdiv.style.borderWidth = width + "px"; 
+				//백틱
+				//vdiv.style.borderWidth = `${width}px`; 
+				//vdiv.style.borderStyle = style;
+				//vdiv.style.borderColor = color;
+				
+				vdiv.style.border = `${width}px ${style} ${color}`
+			}
+			changeColor = function(){
+				//0-255(컬러의 개수) 사이의 난수 생성
+				cr = parseInt(Math.random() * 256);
+				cg = parseInt(Math.random() * 256);
+				cb = parseInt(Math.random() * 256);
+				
+				//vdiv.style.color = "rgb(" + cr + "," + cg + "," + cb + ")";
+				//백틱
+				vdiv.style.color = `rgb(${cr}, ${cg}, ${cb})`;
+			}
+			//람다변수
+			changeSize = () =>{
+				//15-40 사이의 난수 생성
+				size = parseInt(Math.random() * 26 + 15);
+				
+				vdiv.style.fontSize = size + "px";
+				
+			}
+		</script>
+	</head>
+	<body>
+		<pre>
+			변수선언
+			- var 변수명;         : 함수영역에서 선언시 지역변수가 되다.
+			- let 변수명;         : 함수영역 또는 함수의 블럭영역에서의 지역변수가 된다. - es6
+			- const 변수명 = "값"; : 값을 변경할 수 없는 변수가 된다. - es6
+			- 변수명;             : 전역변수가 된다.
+			
+			템플릿 리터럴
+			- 백틱(Backtick)을 이용한 문자열
+			- 사용법 : `문자열 ${변수} 문자열 ${변수} 문자열`
+		</pre>
+		<input type = "button" value = "border" onclick = "changeBorder()">
+		<input type = "button" value = "color" onclick = "changeColor()">
+		<input type = "button" value = "fsize" onclick = "changeSize()">
+		<br><br>
+		<div>Hello</div>
+	</body>
+</html>

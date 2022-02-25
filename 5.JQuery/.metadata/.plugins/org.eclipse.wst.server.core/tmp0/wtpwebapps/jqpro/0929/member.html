@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../css/mystyle.css">
+		<script src="../js/jquery-3.6.0.min.js"></script>
+		<style>
+			table{
+				border : 2px solid blue;
+				border-collapse : collapse;
+				text-align : center;
+				margin-left : auto;
+				margin-right : auto;
+			}
+			td{
+				width : 220px;
+				height : 40px;
+			}
+			tr:nth-child(1){
+				background : lightyellow;
+			}
+		</style>
+		<script>
+			/* function proc1(){ } */
+			$(function(){
+				$('#member').on('click', function(){
+					$.ajax({
+						url : 'memberList.jsp',
+						//data : ,
+						type : 'get',
+						success : function(res){	//200(성공)
+							code = "<table border='1'>";
+							code += "<tr><td>아이디</td>";
+							code += "<td>이름</td>";
+							code += "<td>전화번호</td>";
+							code += "<td>이메일</td>";
+							code += "<td>우편번호</td>";
+							code += "<td>주소</td>";
+							code += "<td>상세주소</td>";
+							code += "<td>생일</td></tr>";
+							$.each(res, function(i, v){
+								code += "<tr>";
+								$.each(res[i], function(a, b){
+									code += "<td>" + b + "</td>";
+								})
+								/* code += "<td>" + v.id + "</td>";
+								code += "<td>" + res[i].name + "</td>";
+								code += "<td>" + res[i].hp + "</td>";
+								code += "<td>" + res[i].mail + "</td>";
+								code += "<td>" + res[i].zip + "</td>";
+								code += "<td>" + res[i].add1 + "</td>";
+								code += "<td>" + res[i].add2 + "</td>";
+								code += "<td>" + res[i].bir + "</td>"; */
+								code += "</tr>";
+							})
+							code += "</table>";
+							
+							//출력
+							$('#result1').html(code);
+						},
+						error : function(xhr){
+							alert(xhr.status + "\n" + xhr.statusText);	//404, 500, 200(원래는 오류 X, 여기서는 json변환 오류)
+						},
+						dataType : 'json'
+					})
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<div class="box">
+			<h3></h3>
+			<h4></h4>
+			<br>
+			<!-- <input type="button" value="MemberList" onclick="proc1()"><br><br> -->
+			<input id="member" type="button" value="MemberList"><br><br>
+			<div id="result1"></div>
+		</div>
+		
+		<br><hr><br>
+	</body>
+</html>

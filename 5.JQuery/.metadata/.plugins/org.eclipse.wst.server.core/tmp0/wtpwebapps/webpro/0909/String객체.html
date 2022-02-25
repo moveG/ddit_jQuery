@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "UTF-8">
+		<title></title>
+		<link rel = "stylesheet" href = "../css/mystyle.css">
+		<style>
+			.box input[type = button]{
+			/*외부 css에서의 형식과 등일하게 설정해줘야 수정이 가능해진다.*/
+			/*.box 없이 input[type = button]으로는 스타일이 적용되지 않는다.*/
+			}
+			#area{
+				border : 1px solid orange;
+			}
+		</style>
+		<script>
+			str = "우리 나라 좋은 나라 대한 민국 만세";
+			
+			//charAt(index) : index위치의 문자를 리턴
+			proc1 = () => {
+				a = str.charAt(4);
+				
+				res = "str.charAt(4) : " + a;
+				document.getElementById('result1').innerHTML = res;
+			}
+			
+			//charCodeAt(index) : index위치의 문자의 유니코드를 리턴
+			proc2 = () => {
+				a = str.charCodeAt(4);
+				
+				res = "str.charCodeAt(4) : " + a;
+				document.getElementById('result2').innerHTML = res;
+			}
+			
+			//indexOf(item, start) : start위치에서부터 item의 위치를 찾아서 인덱스 주소를 리턴(start는 생략이 가능함)
+			proc3 = () => {
+				input = prompt("찾는 글자를 입력하세요.");
+				
+				idx = str.indexOf(input);
+				
+				if(idx < 0) {
+					alert("없는 문자입니다.");
+					
+				}else {
+					res = "찾는 글자 : " + input + "<br>";
+					res += "앞에서 " + idx + "번째 있습니다.";
+				}
+				
+				
+				document.getElementById('result3').innerHTML = res;
+			}
+			
+			//lastIndexOf(item, start) : start위치에서부터 item의 위치를 역방향으로 찾아서 인덱스 주소를 리턴(start는 생략이 가능함)
+			proc4 = () => {
+				//idx = str.lastIndexOf("라");
+				input = prompt("찾는 글자를 입력하세요.");
+				
+				idx = str.lastIndexOf(input);
+				
+				if(idx < 0) {
+					alert("없는 문자입니다.");
+					
+				}else {
+					res = "찾는 글자 : " + input + "<br>";
+					res += idx + "번째 있습니다.";
+				}
+				
+				
+				document.getElementById('result4').innerHTML = res;
+			}
+			
+			//replace(search, value) : search의 문자열을 value의 문자열로 대체
+			//textarea에 쓴 글을 출력
+			proc5 = () => {
+				//textarea을 글을 변수에 저장
+				textvalue = document.getElementById('area').value;
+				
+				//엔터기호를 <br>태그로 변경
+				textvalue = textvalue.replace(/\r/g, "").replace(/\n/g, "<br>");
+				
+				//출력
+				document.getElementById('result5').innerHTML = textvalue;
+			}
+			
+			//match(regexp) : 정규식으로 검색하여 일치하는 결과를 배열로 리턴, 없으면 null을 리턴
+			proc6 = () => {
+				str = "우리 korea 나라 좋은 나라 대한 korea 민국 만세 korea ";
+				
+				//reg = /[a-z]+/;
+				
+				//kk = str.match(reg);
+				//kk = str.match("korea");
+				kk = str.match(/[a-z]+/g);
+				//alert(kk.length);
+				
+				res = str + "<br>";
+				res += "str.match(/[a-z]+/g) : " + kk + "<br>";
+				
+				document.getElementById('result6').innerHTML = res;
+			}
+			
+			//substing(from, to) : 두 위치 사이의 문자열을 추출, end는 제외
+			proc7 = () => {
+				strvalue = str.substring(3, 8);
+				
+				res = str + "<br>";
+				res += "str.substring(3, 8) : " + strvalue + "<br>";
+				
+				document.getElementById('result7').innerHTML = res;
+			}
+			
+			//slice(start, end) :  : start와 end 사이의 문자열을 추출, end는 제외
+			proc8 = () => {
+				strvalue2 = str.slice(3, 5);
+				
+				res = str + "<br>";
+				res += "str.slice(3, 5) : " + strvalue2 + "<br>";
+				
+				document.getElementById('result8').innerHTML = res;
+			}
+			
+			//substr(start, length) : start에서 length개수만큼 추출
+			proc9 = () => {
+				res = "str : " + str + "<br>";
+				res += "str.substr(i, 1) : ";
+				
+				for(i = 0; i < str.length; i++){
+					res += str.substr(i, 1);
+				}
+				res += "<br>";
+				
+				res += "str.charAt(i) : ";
+				for(i = 0; i < str.length; i++){
+					res += str.charAt(i);
+				}
+				res += "<br>";
+				
+				document.getElementById('result9').innerHTML = res;
+			}
+			
+			//split(seperator, limit) : 구분자를 기준으로 문자열을 분리하여 limit수 만큼만 배열로 리턴함(limit를 생략하면 전체 문자열이 대상)
+			proc10 = () => {
+				//arr = str.split(" ");
+				arr = str.split(" ", 4);
+				
+				//res = "str.split(' ') : <br>";
+				res = "str.split(' ', 4) : <br>";
+				
+				for(i = 0; i < arr.length; i++){
+					res += (i + 1) + "번째 문자 : " + arr[i] + "<br>";
+				}
+				
+				document.getElementById('result10').innerHTML = res;
+			}
+		</script>
+	</head>
+	<body>
+		<div class = "box">
+			<h3>String객체</h3>
+			<h4>str = "우리 나라 좋은 나라 대한 민국 만세";</h4>
+			<h4>charAt(index) : index위치의 문자를 리턴</h4>
+			<h4>charCodeAt(index) : index위치의 문자의 유니코드를 리턴</h4>
+			<br>
+			<input type = "button" value = "확인" onclick = "proc1()">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type = "button" value = "확인" onclick = "proc2()"><br><br>
+			<div id = "result1"></div><br>
+			<div id = "result2"></div>
+		</div>
+		
+		<br><hr><br>
+		
+		<div class = "box">
+			<h3>String객체</h3>
+			<h4>str = "우리 나라 좋은 나라 대한 민국 만세";</h4>
+			<h4>indexOf(item, start) : start위치에서부터 item의 위치를 찾아서 인덱스 주소를 리턴(start는 생략이 가능함)</h4>
+			<h4>lastIndexOf(item, start) : start위치에서부터 item의 위치를 역방향으로 찾아서 인덱스 주소를 리턴(start는 생략이 가능함, 뒤에서부터 X번쨰가 아님)</h4>
+			<br>
+			<input type = "button" value = "확인" onclick = "proc3()">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type = "button" value = "확인" onclick = "proc4()"><br><br>
+			<div id = "result3"></div><br>
+			<div id = "result4"></div>
+		</div>
+		
+		<br><hr><br>
+		
+		<div class = "box">
+			<h3>String객체</h3>
+			<h4>replace(search, value) : search의 문자열을 value의 문자열로 대체</h4>
+			<h4>match(regexp) : 정규식으로 검색하여 일치하는 결과를 배열로 리턴, 없으면 null을 리턴</h4>
+			<textarea rows = "10" cols = "50" id = "area"></textarea>
+			<br><br>
+			<input type = "button" value = "replace-br" onclick = "proc5()">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type = "button" value = "match-alpha" onclick = "proc6()"><br><br>
+			<div id = "result5"></div><br>
+			<div id = "result6"></div>
+		</div>
+		
+		<br><hr><br>
+		
+		<div class = "box">
+			<h3>String객체</h3>
+			<h4>substing(from, to) : 두 위치 사이의 문자열을 추출, end는 제외</h4>
+			<h4>slice(start, end) :  : start와 end 사이의 문자열을 추출, end는 제외</h4>
+			<h4>substr(start, length) : start에서 length개수만큼 추출</h4>
+			<br>
+			<input type = "button" value = "substring" onclick = "proc7()">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type = "button" value = "slice" onclick = "proc8()">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type = "button" value = "substr" onclick = "proc9()"><br><br>
+			<div id = "result7"></div><br>
+			<div id = "result8"></div><br>
+			<div id = "result9"></div>
+		</div>
+		
+		<br><hr><br>
+		
+		<div class = "box">
+			<h3>String객체</h3>
+			<h4>split(seperator, limit) : 구분자를 기준으로 문자열을 분리하여 limit수 만큼만 배열로 리턴함(limit를 생략하면 전체 문자열이 대상)</h4>
+			<br>
+			<input type = "button" value = "split" onclick = "proc10()"><br><br>
+			<div id = "result10"></div>
+		</div>
+		
+		<br><hr><br>
+	</body>
+</html>

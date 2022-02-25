@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.wst.html.ui.internal.preferences.ui.HTMLTemplatePreferencePage$HTMLEditTemplateDialog_dialogBounds">
+		<item value="612" key="DIALOG_WIDTH"/>
+		<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
+		<item value="406" key="DIALOG_HEIGHT"/>
+		<item value="38" key="DIALOG_X_ORIGIN"/>
+		<item value="107" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item value="729" key="DIALOG_X_ORIGIN"/>
+		<item value="403" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="false" key="isRegEx"/>
+		<item value="proc" key="selection"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="true" key="wrap"/>
+		<item value="false" key="wholeword"/>
+		<list key="findhistory">
+			<item value="proc"/>
+			<item value="정규식"/>
+			<item value="span"/>
+			<item value="serial"/>
+			<item value="key"/>
+			<item value="hit"/>
+			<item value="pageserver"/>
+			<item value="listPageServer"/>
+			<item value="datas"/>
+			<item value="num"/>
+			<item value="idx"/>
+			<item value="hidden"/>
+			<item value="writemodal"/>
+			<item value="write"/>
+			<item value="flag"/>
+		</list>
+		<list key="replacehistory">
+			<item value="cartclass2"/>
+			<item value="cartclass3"/>
+			<item value="cartclass1"/>
+			<item value="movie"/>
+			<item value="music"/>
+			<item value="food"/>
+			<item value="furniture"/>
+			<item value="sports"/>
+			<item value="clothp2"/>
+			<item value="clothp1"/>
+			<item value="indexp2"/>
+			<item value="indexp1"/>
+			<item value="indexa4"/>
+			<item value="indexa2"/>
+			<item value="indexa1"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="288" key="DIALOG_WIDTH"/>
+		<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
+		<item value="391" key="DIALOG_HEIGHT"/>
+		<item value="1223" key="DIALOG_X_ORIGIN"/>
+		<item value="269" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>

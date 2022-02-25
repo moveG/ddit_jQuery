@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "UTF-8">
+		<title></title>
+		<style>
+			p{
+				font-size : 2.0em;
+			}
+			p[title]{
+				background : yellow;
+			}
+			p.flp{	//p[class = flp]와 동일함;
+			}
+			p[class = flp]{
+				border : 4px dotted pink;
+			}
+			#p3{
+			}
+			p[id = p3]{
+			}
+			#p3, #p4{
+				color : red;
+			}
+			p[id = p3], p[id = p4]{
+				color : blue;
+			}
+		</style>
+	</head>
+	<body>
+		<p title = "무궁화">무광화 꽃이 피었습니다.</p>
+		<p class = "flp">무광화 꽃이 피었습니다.</p>
+		<p id = "p3">무광화 꽃이 피었습니다.</p>
+		<p id = "p4">무광화 꽃이 피었습니다.</p>
+		<p class = "flp">무광화 꽃이 피었습니다.</p>
+		<p>무광화 꽃이 피었습니다.</p>
+	</body>
+</html>

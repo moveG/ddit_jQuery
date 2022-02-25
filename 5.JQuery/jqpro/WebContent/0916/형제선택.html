@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../css/mystyle.css">
+		<script src="../js/jquery-3.6.0.min.js" type=""></script>
+		<script>
+			$(function(){
+				$('#btn1').on('click', function(){
+					//h3 다음의 모든 형제 중 p태그를 선택하여 배경색 변경, 길이 지정, 가운데 정렬
+					//$('h3~p').css('background', 'yellowgreen').css('width', '300px').css('text-align', 'center');
+					$('h3~p').css({
+						'background' : 'yellowgreen',
+						'width' : '300px',
+						'text-align' : 'center'
+					});
+					
+					//h3 다음의 첫번째 형제(p태그)의 글자를 크고(font-size) 굵게(font-weight) 변경 
+					//$('h3+p').css('font-size', '3.0em').css('font-weight', 'bold');
+					$('h3+p').css({
+						'font-size' : '3.0em',
+						'font-weight' : 'bold'	
+					});
+					
+					//setInterval(function(){
+					//	cr = Math.floor(Math.random() * 256);
+					//	cg = Math.floor(Math.random() * 256);
+					//	cb = Math.floor(Math.random() * 256);
+					//	$('body').css('background', '#' + cr + cg + cb);
+					//}, 50);
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<div class="box">
+			<h3></h3>
+			<h4></h4>
+			<br>
+			<input id="btn1" type="button" value="확인"><br><br>
+			<div id="result1">
+				<p>형제 선택자 에 대하여</p>
+				<h3> 꼬마버스 타요 가족을 소개 합니다</h3>
+				<p> 타요</p>
+				<p> 로기</p>
+				<p> 라니 </p>
+				<p> 가니 </p>
+			</div>
+		</div>
+		
+		<br><hr><br>
+	</body>
+</html>

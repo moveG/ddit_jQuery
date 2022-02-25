@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "UTF-8">
+		<title></title>
+		<link rel = "stylesheet" href = "../css/mystyle.css">
+		<script>
+			now1 = new Date();	//오늘 날짜
+			now2 = new Date(8640000);	//1970년 01월 01일 이후로 1232323밀리세컨드(1/1000초)만큼 시간이 지난 날짜
+			now3 = new Date("2010. 05. 23");	//2010년 5월 23일
+			now4 = new Date(2010, 5, 23);		//2010년 6월 23일
+			now5 = new Date(2010, 4, 23);		//2010년 5월 23일
+			
+			//Date객체
+			proc1 = () => {
+				//now1 = new Date();	//오늘 날짜
+				//now2 = new Date(1232323);	//1970년 01월 01일 이후로 1232323밀리세컨드(1/1000초)만큼 시간이 지난 날짜
+				//now3 = new Date("2010. 05. 23");	//2010년 5월 23일
+				//now4 = new Date(2010, 5, 23);		//2010년 6월 23일
+				//now5 = new Date(2010, 4, 23);		//2010년 5월 23일
+				
+				str = now1.toLocaleDateString() + "<br>";
+				str += now2.toLocaleDateString() + "<br>";
+				str += now3.toLocaleDateString() + "<br>";
+				str += now4.toLocaleDateString() + "<br>";
+				str += now5.toLocaleDateString() + "<br>";
+				
+				document.getElementById('result1').innerHTML = str;
+			}
+			
+			//요일 구하기
+			proc2 = () => {
+				//proc1()의 now1, 2, 3, 4, 5는 전역변수이므로 proc2()에서도 사용이 가능
+				//그러나 proc1()이 실행되어야 정의되므로 proc1()을 실행해야 proc2()에서도 사용이 가능함
+				//그러니 now1, 2, 3, 4, 5를 proc1() 밖으로 빼면 어디에서든 사용이 가능해짐 
+				
+				day = now1.getDay();
+				
+				str = now1.toLocaleDateString() + "<br>";
+				
+				yy = now1.getFullYear() + "년 ";
+				//mm = now1.getMonth() + "월 "; //9월인데 8월이 나오므로 +1이 필요함
+				mm = now1.getMonth()+1 + "월 ";
+				dd = now1.getDate() + "일 "
+				
+				str += yy + mm + dd + "<br>";
+				
+				switch(day){
+				case 0:
+					str += "일요일";
+					break;
+				case 1:
+					str += "월요일";
+					break;
+				case 2:
+					str += "화요일";
+					break;
+				case 3:
+					str += "수요일";
+					break;
+				case 4:
+					str += "목요일";
+					break;
+				case 5:
+					str += "금요일";
+					break;
+				case 6:
+					str += "토요일";
+					break;
+				}
+				document.getElementById('result2').innerHTML = str;
+			}
+			
+			//요일 구하기 - 배열을 이용
+			proc3 = () => {
+				arr = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+				
+				str = now1.toLocaleDateString() + "<br>";
+				
+				yy = now1.getFullYear() + "년 ";
+				mm = now1.getMonth()+1 + "월 ";
+				dd = now1.getDate() + "일 "
+				
+				str += yy + mm + dd + "<br>";
+				
+				str += arr[now1.getDay()];
+				
+				document.getElementById('result3').innerHTML = str;
+			}
+			
+			//경과시간 구하기 - 생일부터 현재시간까지
+			proc4 = () => {
+				birth = new Date("1989. 08. 20");
+				
+				toDay = now1.getTime();
+				myDay = birth.getTime();
+				
+				times = toDay - myDay;
+				
+				//res = times / 1000 / 60 / 60 / 24 / 365;
+				res = times / 1000 / 60 / 60 / 24 / 365;
+				
+				str = "오늘 : " + now1.toLocaleDateString() + "<br>";
+				str += "생일 : " + birth.toLocaleDateString() + "<br>";
+				str += "생일로부터 " + res.toFixed() + "년이 지났습니다.<br>";
+				str += "생일로부터 " + (res * 365).toFixed() + "월이 지났습니다.<br>";
+				str += "생일로부터 " + (res * 365 * 24).toFixed() + "일이 지났습니다.<br>";
+				str += "생일로부터 " + (res * 365 * 24 * 60).toFixed() + "시간이 지났습니다.<br>";
+				str += "생일로부터 " + (res * 365 * 24 * 60 * 60).toFixed() + "초가 지났습니다.<br>";
+				
+				document.getElementById('result4').innerHTML = str;
+			}
+			
+			//경과시간 구하기 - 오늘부터 100일 후
+			proc5 = () => {
+				//100일의 timesec값
+				day100 = 1 * 1000 * 60 * 60 * 24 * 100;
+				console.log(day100);
+				//오늘의 timesec값
+				today = now1.getTime();
+				console.log(today);
+				
+				//오늘부터 100일 후의 timesec값
+				after100 = day100 + today;
+				console.log(after100);
+				
+				future100 = new Date(after100);
+				
+				str = future100.toLocaleDateString() + "<br>";
+				
+				document.getElementById('result5').innerHTML = str;
+			}
+			
+			//교환날짜 구하기
+			proc6 = () => {
+				//id가 pdate인 input요소에 값을 가져온다 - value
+				invalue = document.getElementById('pdate').value;
+				
+				//가져온 값으로 Date객체를 생성한다. - new Date()
+				indate = new Date(invalue);
+				
+				//생성된 Date객체에서 getTime()값을 구한다.
+				insec = indate.getTime();
+				
+				//오늘의 getTime()값을 구한다.
+				tosec = now1.getTime();
+				
+				//지난 일수를 구한다. - /1000 /60 /60 /24
+				exchange = (tosec - insec) / 1000 / 60 / 60 / 24;
+				
+				str = "구입한지 " + exchange.toFixed() + "일이 지났습니다.<br>";
+				
+				
+				//7일이 지났는지 비교
+				if(exchange < 0){
+					alert("선택할 수 있는 날짜가 아닙니다.");
+					return;
+				}
+				
+				if(exchange > 7) {
+					str += "교환기간이 지났습니다.<br>";
+				}else{
+					str += "교환이 가능합니다.<br>";
+				}
+				document.getElementById('result6').innerHTML = str;
+			}
+		</script>
+	</head>
+	<body>
+		<div class = "box">
+			<h3>Date객체</h3>
+			<h4>new Date() : 오늘 날짜</h4>
+			<h4>new Date(milliseconds) : 밀리세컨드 = 1/1000초</h4>
+			<h4>new Date("dateString")</h4>
+			<h4>new Date(year, month, date, hour, min, sec, ...) : month는 0부터 시작함(ex)5월 -> 4를 넣어야함)</h4>
+			<h4>new Date(year, month, date [, hour, min, sec, ...]) : 대괄호'[]'를 통해 생략이 가능함</h4>
+			<br>
+			<input type = "button" value = "확인" onclick = "proc1()"><br><br>
+			<div id = "result1"></div>
+		</div>
+		
+		<br><hr><br>
+		
+		<div class = "box">
+			<h3>요일 구하기</h3>
+			<h4>getDay() : 리턴값은 0~6(일~토)</h4>
+			<br>
+			<input type = "button" value = "확인" onclick = "proc2()">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type = "button" value = "배열" onclick = "proc3()"><br><br>
+			<div id = "result2"></div><br>
+			<div id = "result3"></div>
+		</div>
+		
+		<br><hr><br>
+		
+		<div class = "box">
+			<h3>Date객체</h3>
+			<h4>getTime() : 리턴값은 경과시간(milliseconds, 1/1000초)</h4>
+			<h4>오늘날짜.getTime() : 기준시간(1970년 1월 1일)으로부터 오늘 날짜까지의 경과시간(milliseconds, 1/1000초)</h4>
+			<h4>실제 경과시간(초)를 구하려면 경과시간 / 1000</h4>
+			<h4>100일 후의 날짜 구하기</h4>
+			<h4>1일의 timesec 구하기 : timesec * 1000 * 60 * 60 * 24</h4>
+			<h4>100일의 timesec 구하기 : (timesec * 1000 * 60 * 60 * 24) * 100</h4>
+			<h4>new Date(새로운 milliseconds값);</h4>
+			<br>
+			<input type = "button" value = "과거" onclick = "proc4()">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type = "button" value = "미래" onclick = "proc5()"><br><br>
+			<div id = "result4"></div><br>
+			<div id = "result5"></div>
+		</div>
+		
+		<br><hr><br>
+		
+		<div class = "box">
+			<h3>교환날짜 구하기</h3>
+			<h4>구입날짜를 선택해서 7일이 지났는지 확인</h4>
+			<h4>7일 이전 : 교환 가능</h4>
+			<h4>7일 이후 : 교환 불가능</h4>
+			<br>
+			<input type = "date" id = "pdate">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type = "button" value = "확인" onclick = "proc6()"><br><br>
+			<div id = "result6"></div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "UTF-8">
+		<title></title>
+		<link rel = "stylesheet" href = "../css/mystyle.css">
+		<style>
+			div{
+				padding : 20px;
+				height : auto;
+				width : 50%;
+				border : 1px dotted blue;
+			}
+		</style>
+		<script>
+			//window.onload = function() {}
+			window.onload = () => {
+				first = parseInt(prompt("첫번째 숫자를 입력하세요."));
+				second = parseInt(prompt("두번째 숫자를 입력하세요."));
+ 
+				op = prompt("연산자를 입력하세요.(+, -, *, /)");
+				
+				//비교해서 연산
+				if(op == "+"){
+					res = first + second;
+				}else if(op == "-"){
+					res = first - second;
+				}else if(op == "*"){
+					res = first * second;
+				}else if(op == "/"){
+					res = first / second;
+				}
+				//자바스크립트에서는 정수끼리 나눠도 실수로 표현된다.
+				//더하기 할 때만 parseInt가 필요하다.
+				
+				//출력내용
+				str = `${first} ${op} ${second} = ${res}`;
+				
+				//div로 접근
+				document.querySelector('div').innerHTML = str;
+			}
+		</script>
+	</head>
+	<body>
+		<pre>
+		prompt를 이용하여 두 숫자를 입력받는다.
+		prompt를 이용하여 연산자를 입력받는다.
+		연산자를 비교하여 연산한 뒤에 div에 출력한다.
+		</pre>
+		<div></div>
+	</body>
+</html>

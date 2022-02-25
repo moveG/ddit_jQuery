@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../css/mystyle.css">
+		<script src="../js/jquery-3.6.0.min.js" type=""></script>
+		<style>
+			.box input[type = submit], .box button[type = button], .box button[type = submit], .box button[type = reset]{
+				border-radius : 0%;
+				border : none;
+				height : 30px;
+				width : 100px;
+				background : orange;
+				color : white;
+				font-weight : bold;
+				text-align : center;
+			}
+			label{
+				display : inline-block;
+				width : 90px;
+				height : 30px;
+			}
+		</style>
+		<script>
+			$(function(){
+				$('#btn1').on('click', function(){
+					$('#result1 :input').css('background', 'pink');
+					$('#result1 :button').css('background', 'skyblue');
+					
+					//input요소 테두리색 lime , 배경색 pink
+					$('#result1 input').css({
+						'border' : '2px solid lime',
+						'background' : 'pink'
+					})
+					
+					//Textarea요소의 배경색 gold
+					$('#result1 textarea').css('background', 'gold');
+					
+					//input[type=button]요소 배경색 lightgreen
+					$('#result1 input:button').css('background', 'lightgreen');
+					
+					//Button요소, input[type=button]요소 배경색 olive
+					//$('#result1 button, #result1 input[type=button]').css('background', 'skyblue');
+					$('#result1 :button').css('background', 'olive');
+					
+					//Type이 submit인 요소의 배경색 red
+					$('#result1 :submit').css('background', 'red');
+					
+					//Type이 reset인 요소의 배경색 yellow
+					$('#result1 :reset').css('background', 'yellow');
+					
+					//Type이 text, password인 요소의 테두리색 blue
+					$('#result1 :text, #result1 :password').css('border', '2px solid blue');
+					
+					//Type이 file, image인 요소의 테두리색 brown
+					$('#result1 :file, #result1 :image').css('border', '2px solid brown');
+					
+					//Textarea요소의 배경색 random
+					setInterval(function(){
+						cr = Math.floor(Math.random() * 256);
+						cg = Math.floor(Math.random() * 256);
+						cb = Math.floor(Math.random() * 256);
+						
+						cr = cr.toString(16);
+						cg = cg.toString(16);
+						cb = cb.toString(16);
+						$('#result1 textarea, #result1').css('background', '#' + cr + cg + cb);
+					}, 30);	
+					setInterval(function(){
+						cr = Math.floor(Math.random() * 256);
+						cg = Math.floor(Math.random() * 256);
+						cb = Math.floor(Math.random() * 256);
+						
+						cr = cr.toString(16);
+						cg = cg.toString(16);
+						cb = cb.toString(16);
+						$('#result1').css('background', '#' + cr + cg + cb);
+					}, 30);	
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<div class="box">
+			<h3>입력양식 선택</h3>
+			<h4></h4>
+			<br>
+			<input id="btn1" type="button" value="확인"><br><br>
+			<div id="result1">
+				<form action="aa.jsp" method="post" onsubmit="return false;"> 
+					<label>Text</label><input type="text"/><br> 
+					<label>Password</label><input type="password"/><br><br>
+					
+					<label>Radio</label>
+					<input type="radio" name="radioGroup" id="radioA" value="A"/> A 
+					<input type="radio" name="radioGroup" id="radioB" value="B"/> B<br> 
+					
+					<label>CheckBox</label>
+					<input type="checkbox" name="checkboxes" id="checkbox1" value="1"/> 1 
+					<input type="checkbox" name="checkboxes" id="checkbox2" value="2"/> 2<br><br> 
+					
+					<label>TextArea :</label><br>
+					<textarea rows="15" cols="50" id="myTextarea" id="myTextarea"></textarea><br><br>
+					
+					<label>Image :</label><br>
+					<input type="image" src="../images/image.1.jpg"><br><br>
+					<label>File :</label><br>
+					<input type="file"><br><br> 
+					
+					<label>Buttons :</label><br>
+					<button type="button" id="normalButton">Normal</button> 
+					<button type="submit" id="submitButton">Submit</button> 
+					<button type="reset" id="resetButton">Reset</button><br><br>
+					
+					<input type="button" value="일반버튼"> 
+					<input type="submit" value="전송버튼"> 
+					<input type="reset" value="초기화버튼"><br><br>
+				</form>
+			</div>
+		</div>
+		
+		<br><hr><br>
+	</body>
+</html>

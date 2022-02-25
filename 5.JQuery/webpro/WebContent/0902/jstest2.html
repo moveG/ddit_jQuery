@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "UTF-8">
+		<title></title>
+		<style>
+			div{
+				height : auto;
+				width : 80%;
+				border : 1px solid blue;
+			}
+		</style>
+		<script>
+			function proc1(){
+				var now = new Date();
+				//document.write(now);
+				//기존에 실행된 document를 덮어쓰기함
+				
+				//div요소로 접근 - 배열로 리턴
+				var vdiv = document.getElementsByTagName('div');
+				//ID는 중복하면 안되므로 getElement
+				//TagName은 중복해도 되므로 getElements
+				
+				//접근된 요소에 출력함
+				vdiv[0].innerHTML = now + "<br>";
+				
+				now1 = now.toLocaleString();
+				now2 = now.toLocaleDateString();
+				now3 = now.toLocaleTimeString();
+				
+				//vdiv[0].innerHTML = now1 + "<br>";
+				//vdiv[0].innerHTML = now2 + "<br>";
+				//vdiv[0].innerHTML = now3 + "<br>";
+				//이렇게하면 now1, 2를 덮어쓰고 now3만 나옴
+			
+				vdiv[0].innerHTML += now1 + "<br>";
+				vdiv[0].innerHTML += now2 + "<br>";
+				vdiv[0].innerHTML += now3 + "<br>";
+			}
+		</script>
+	</head>
+	<body>
+		<input type = "button" value = "확인" onclick = "proc1()"><br><br>
+		
+		<div></div>
+	</body>
+</html>

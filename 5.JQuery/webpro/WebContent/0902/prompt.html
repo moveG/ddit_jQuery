@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "UTF-8">
+		<title></title>
+		<link rel = "stylesheet" href = "../css/mystyle.css">
+		<style></style>
+		<script>
+			window.onload = () =>{
+				//0번째 배열의 것이 검색함
+				vdiv = document.getElementsByTagName('div')[0];
+				
+				//es6 : querySelector <- 첫번째 것만 검색함
+				vdiv = document.querySelector('div');
+				//es6 : querySelectorAll <- 모든 div를 검색함
+			
+				su1 = parseInt(prompt("첫번째 수를 입력하세요."));
+				su2 = parseInt(prompt("두번째 수를 입력하세요."));
+				
+				sum = su1 + su2;
+				
+				//일반방식
+				//vdiv.innerHTML = "첫번째 수 : " + su1 + "<br>";
+				//백틱방식
+				vdiv.innerHTML = `첫번째 수 : ${su1} <br>`;
+				vdiv.innerHTML += "두번째 수 : " + su2 + "<br>";
+				vdiv.innerHTML += "합계 : " + sum + "<br>";
+			}
+		</script>
+	</head>
+	<body>
+		<pre>
+			prompt를 이용한 입력
+			결과 리턴값은 문자열이다.
+			
+			두 수를 입력받아서 덧셈결과를 출력한다.
+		</pre>
+		<br>
+		<div></div>
+	</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "UTF-8">
+		<title></title>
+		<link rel="shortcut icon" type="image/x-icon" href="../images/check.png"/>
+		<style>
+			div{
+				width : 80%;
+				height : auto;
+				border : 1px solid blue;
+				padding : 20px;
+			}
+		</style>
+		<script>
+			window.onload = function() {
+			//window.onload : 아래의 body에 접근한 다음에 function을 실행
+				var now = new Date();
+				
+				//div요소로 접근 - 배열로 리턴
+				var vdiv = document.getElementsByTagName('div');
+				
+				//접근된 요소에 출력함
+				vdiv[0].innerHTML = now + "<br>";
+			}
+		</script>
+	</head>
+	<body>
+		<div>
+			
+		</div>
+	</body>
+</html>

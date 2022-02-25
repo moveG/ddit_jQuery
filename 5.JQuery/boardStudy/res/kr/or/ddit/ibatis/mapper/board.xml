@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+			PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+			"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="board">
+	<select id="boardList" resultClass="boardVO">
+		SELECT BOARD_NO AS board_no,
+			   BOARD_TITLE AS board_title,
+			   BOARD_WRITER AS board_writer,
+			   TO_CHAR(TO_DATE(BOARD_DATE, 'YYYY/MM/DD')) AS board_date
+		  FROM JDBC_BOARD
+		 ORDER BY BOARD_NO DESC
+	</select>
+	
+	<select id="boardRead" parameterClass="int" resultClass="boardVO">
+		SELECT BOARD_NO AS board_no,
+			   BOARD_TITLE AS board_title,
+			   BOARD_WRITER AS board_writer,
+			   TO_CHAR(TO_DATE(BOARD_DATE, 'YYYY/MM/DD')) AS board_date,
+			   BOARD_CONTENT AS board_content
+		  FROM JDBC_BOARD
+		 WHERE BOARD_NO = #no#
+	</select>
+</sqlMap>

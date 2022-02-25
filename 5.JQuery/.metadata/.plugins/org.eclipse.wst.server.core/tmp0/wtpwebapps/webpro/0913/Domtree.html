@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "UTF-8">
+		<title></title>
+		<link rel = "stylesheet" href = "../css/mystyle.css">
+		<style>
+			img{
+				width : 50px;
+				height : 50px;
+			}
+		</style>
+		<script>
+			function proc1(){
+				ultag = document.getElementsByTagName('ul')[0];
+				lilist = ultag.getElementsByTagName('li');
+				
+				str = "";
+				
+				for(i = 0; i < lilist.length; i++){
+					//alert(lilist[i].firstChild);
+					str += lilist[i].firstChild.data + "<br>";
+				}
+				
+				document.getElementById('result1').innerHTML = str;
+			}
+			
+			function proc2(t){
+				text = document.createTextNode(t);
+				
+				parent = document.getElementById('result2');
+				
+				parent.appendChild(text);
+			}
+			
+			function proc3(){
+				ultag = document.getElementsByTagName('ul')[1];
+				lilist = ultag.getElementsByTagName('li');
+				
+				for(i = 0; i < lilist.length; i++){
+					vimg = lilist[i].firstChild.data;
+					//alert(vimg);
+					
+					//이미지 태그 생성
+					imgtag = document.createElement('img');
+					
+					imgtag.src = "../images/" + vimg + ".jpg";
+					imgtag.alt = vimg;
+					
+					lilist[i].appendChild(imgtag);
+				}
+			}
+			
+			function proc4(t){
+				vimg = t.firstChild.data;
+				
+				//이미지 태그 생성
+				imgtag = document.createElement('img');
+				
+				imgtag.src = "../images/" + vimg + ".jpg";
+				imgtag.alt = vimg;
+				
+				t.appendChild(imgtag);
+			}
+		</script>
+	</head>
+	<body>
+		<div class = "box">
+			<h3>Dom Tree</h3>
+			<h4>문서를 액세스하기위한 표준을 정의한다.</h4>
+			<h4>새로운 요소를 생성한다.</h4>
+			<h4>- 텍스트 노드를 갖는 요소와 갖지 않는 요소로 구분함</h4>
+			<h4>- 요소 노드와 텍스트 노드를 생성한 후에 텍스트 노드를 요소 노드에 붙임</h4>
+			<br>
+			<ul>
+				<li>List item 1</li>
+				<li>List item 2</li>
+				<li>List item 3</li>
+				<li>List item 4</li>
+				<li>List item 5</li>
+			</ul>
+			<br>
+			<input type = "button" value = "확인" onclick = "proc1()"><br><br>
+			<div id = "result1"></div>
+		</div>
+		
+		<br><hr><br>
+		
+		<div class = "box">
+			<h3>Dom Tree</h3>
+			<h4>버튼을 클릭하면 "무궁화 꽃이 피었습니다."라는 텍스트를 생성하여 result2에 추가한다.</h4>
+			<h4>createTextNode('무궁화 꽃이 피었습니다.');</h4>
+			<h4>부모오브젝트.appendChild(자식오브젝트);</h4>
+			<br>
+			<input type = "button" value = "확인" onclick = "proc2('무궁화 꽃이 피었습니다.')"><br><br>
+			<div id = "result2"></div>
+		</div>
+		
+		<br><hr><br>
+		
+		<div class = "box">
+			<h3>Dom Tree</h3>
+			<br>
+			<ul>
+				<li>컴퓨터1</li>
+				<li>딸기스무디</li>
+				<li>코알라</li>
+				<li>수국8</li>
+				<li>단풍</li>
+			</ul>
+			<br>
+			<input type = "button" value = "확인" onclick = "proc3()"><br><br>
+			<div id = "result3"></div>
+		</div>
+		
+		<br><hr><br>
+		
+		<div class = "box">
+			<h3>Dom Tree</h3>
+			<h4>각 아이템 항목을 클릭하면 해당 이미지를 출력</h4>
+			<br>
+			<ul>
+				<li onclick = "proc4(this)">컴퓨터1</li>
+				<li onclick = "proc4(this)">딸기스무디</li>
+				<li onclick = "proc4(this)">코알라</li>
+				<li onclick = "proc4(this)">수국8</li>
+				<li onclick = "proc4(this)">단풍</li>
+			</ul>
+			<br>
+		</div>
+	</body>
+</html>

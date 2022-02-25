@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "UTF-8">
+		<title>winsub</title>
+		<link rel = "stylesheet" href = "../css/mystyle.css">
+		<script>
+			//opener
+			proc1 = () => {
+				idvalue = document.getElementById('id').value;
+				namevalue = document.getElementById('name').value;
+				
+				res = "id : " + idvalue + ", 이름 : " + namevalue;
+				
+				opener.document.getElementById('result8').innerHTML = res;
+				
+				window.close();
+			}
+		</script>
+	</head>
+	<body>
+		
+		<div class = "box">
+			<h3></h3>
+			<h4>아이디 : <input type = "text" id = "id"></h4>
+			<h4>이름 : <input type = "text" id = "name"></h4>
+			<br>
+			<input type = "button" value = "opener" onclick = "proc1()"><br><br>
+			<div id = "result1"></div>
+		</div>
+		
+		<br><hr><br>
+	</body>
+</html>
